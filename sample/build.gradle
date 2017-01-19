@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.ben-manes.versions'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.malpo.sliver"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'NOTICE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repository.jetbrains.com/all"
+    }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile project(':sliver')
+
+    compile 'com.android.support:multidex:1.0.1'
+
+    //support libs
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile('com.android.support:support-fragment:25.1.0') {
+        exclude group: 'com.google.android.gms'
+    }
+
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
+
+    //timber
+    compile 'com.jakewharton.timber:timber:4.3.1'
+
+    //picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //slim
+    compile 'com.metova:slim:1.2'
+
+    //dagger
+    compile 'com.google.dagger:dagger:2.8'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    //rx
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.2'
+    compile 'com.trello:rxlifecycle:0.6.1'
+    compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
+
+    //retrofit / okhttp
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-moshi:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    debugCompile 'com.squareup.retrofit2:retrofit-mock:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+    debugCompile 'com.squareup.okhttp3:mockwebserver:3.4.2'
+
+    //stetho
+    compile 'com.facebook.stetho:stetho:1.4.1'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
+
+    /* ANDROID TEST */
+    androidTestCompile 'org.mockito:mockito-core:2.2.13'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+    androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.3-alpha', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    /* UNIT TEST */
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.2.13'
+    testAnnotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+}
