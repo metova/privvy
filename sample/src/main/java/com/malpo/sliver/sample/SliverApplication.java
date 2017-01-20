@@ -1,11 +1,10 @@
 package com.malpo.sliver.sample;
 
-import android.app.Application;
-
-import com.malpo.sliver.sample.BuildConfig;
 import com.malpo.sliver.sample.di.ApplicationComponent;
 import com.malpo.sliver.sample.di.ApplicationModule;
 import com.malpo.sliver.sample.di.DaggerApplicationComponent;
+
+import android.app.Application;
 
 import timber.log.Timber;
 

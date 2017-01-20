@@ -1,7 +1,4 @@
-package com.malpo.sliver.sample.ui.sample.di;
-
-import com.malpo.sliver.sample.ui.sample.sliver.SampleInteractor;
-import com.malpo.sliver.sample.ui.sample.sliver.SamplePresenter;
+package com.malpo.sliver.sample.ui.sample;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,13 +11,13 @@ public class SampleSliverModule {
 
     @Provides
     @SampleScope
-    SamplePresenter providePresenter(SampleInteractor interactor) {
+    SampleContract.Presenter providePresenter(SampleInteractor interactor) {
         return new SamplePresenter(interactor);
     }
 
     @Provides
     @SampleScope
-    SampleInteractor provideInteractor() {
+    SampleContract.Interactor provideInteractor() {
         return new SampleInteractor();
     }
 
