@@ -8,7 +8,7 @@ class SamplePresenter implements SampleContract.Presenter {
 
     private SampleContract.Interactor interactor;
 
-    SamplePresenter(SampleInteractor interactor) {
+    SamplePresenter(SampleContract.Interactor interactor) {
         this.interactor = interactor;
     }
 

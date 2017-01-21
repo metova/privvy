@@ -11,7 +11,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "0.0.1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.malpo.sliver.sample.SliverTestRunner"
         multiDexEnabled true
     }
     signingConfigs {
@@ -90,20 +90,6 @@ dependencies {
     compile 'com.trello:rxlifecycle:0.6.1'
     compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
 
-    //retrofit / okhttp
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-moshi:2.1.0'
-    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    debugCompile 'com.squareup.retrofit2:retrofit-mock:2.1.0'
-    compile 'com.squareup.okhttp3:okhttp:3.4.2'
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.2'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
-    debugCompile 'com.squareup.okhttp3:mockwebserver:3.4.2'
-
-    //stetho
-    compile 'com.facebook.stetho:stetho:1.4.1'
-    compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
 
     /* ANDROID TEST */
     androidTestCompile 'org.mockito:mockito-core:2.2.13'
@@ -111,9 +97,9 @@ dependencies {
     androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
     androidTestAnnotationProcessor 'com.google.dagger:dagger-compiler:2.7'
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.3-alpha', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
 
     /* UNIT TEST */
     testCompile 'junit:junit:4.12'

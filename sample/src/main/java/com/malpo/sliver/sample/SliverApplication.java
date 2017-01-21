@@ -15,11 +15,17 @@ public class SliverApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        component = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this)).build();
 
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+
+        component = buildComponent();
+    }
+
+    protected ApplicationComponent buildComponent() {
+        Timber.d("Building actual component");
+        return DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this)).build();
     }
 }

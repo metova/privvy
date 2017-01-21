@@ -8,12 +8,14 @@ import timber.log.Timber;
 
 class SampleInteractor implements SampleContract.Interactor {
 
-    @Inject
-    public SampleInteractor() {
+    private String log;
+
+    public SampleInteractor(String log) {
+        this.log = log;
     }
 
     @Override
     public void sendMessageToApi(Message message) {
-        Timber.d("Sent message!");
+        Timber.d(log);
     }
 }
