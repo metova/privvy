@@ -4,7 +4,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class SampleSliverModule {
+public final class SampleSliverModule {
 
     public SampleSliverModule() {
     }

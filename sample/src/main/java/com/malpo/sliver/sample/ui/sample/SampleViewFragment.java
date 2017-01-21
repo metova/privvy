@@ -1,7 +1,5 @@
 package com.malpo.sliver.sample.ui.sample;
 
-import com.malpo.sliver.sample.R;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,14 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.malpo.sliver.sample.R;
+import com.malpo.sliver.sample.SliverApplication;
+
+import javax.inject.Inject;
 
 public class SampleViewFragment extends Fragment implements SampleContract.View {
 
-    private SampleSliverComponent sampleComponent;
+    @Inject
+    SampleSliverComponent sampleSliverComponent;
 
     @BindView(R.id.title)
     TextView title;
@@ -24,13 +26,13 @@ public class SampleViewFragment extends Fragment implements SampleContract.View 
     @BindView(R.id.message)
     TextView message;
 
+    private SampleContract.Presenter presenter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        sampleComponent = DaggerSampleSliverComponent.builder()
-                .sampleSliverModule(new SampleSliverModule())
-                .build();
+        SliverApplication.component.inject(this);
+        presenter = sampleSliverComponent.presenter();
     }
 
     @Nullable
@@ -54,6 +56,6 @@ public class SampleViewFragment extends Fragment implements SampleContract.View 
     @Override
     @OnClick(R.id.send_button)
     public void onSendClick() {
-        sampleComponent.presenter().sendMessage(message.getText().toString());
+        presenter.sendMessage(message.getText().toString());
     }
 }
