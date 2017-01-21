@@ -2,22 +2,28 @@ package com.malpo.sliver.sample.ui.sample;
 
 import com.malpo.sliver.sample.models.Message;
 
+import rx.Observable;
+
 public interface SampleContract {
 
     interface View {
-        void display(SampleViewModel viewModel);
-
         void onSendClick();
+
+        void display(SampleViewModel viewModel);
     }
 
     interface Presenter {
+        void setView(SampleContract.View view);
+
         void sendMessage(String message);
 
-        void onNewMessage(Message message);
+        void onMessageReceived(SampleViewModel viewModel);
+
+        void onMessageError(Throwable th);
     }
 
     interface Interactor {
-        void sendMessageToApi(Message message);
+        Observable<Message> sendMessageToApi(Message message);
     }
 
     interface Router {
