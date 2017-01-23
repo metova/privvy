@@ -19,7 +19,7 @@ class SampleInteractor implements SampleContract.Interactor {
 
     @Override
     public Observable<Message> sendMessageToApi(Message message) {
-		Timber.d(log);
+	Timber.d(log);
         Timber.d("Sending message!");
         return Observable.fromCallable(mockApiCall(message));
     }
