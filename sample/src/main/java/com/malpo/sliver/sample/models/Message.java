@@ -2,10 +2,9 @@ package com.malpo.sliver.sample.models;
 
 public class Message {
 
-    String title;
+    private String title;
 
-    String body;
-
+    private String body;
 
     public Message() {
     }

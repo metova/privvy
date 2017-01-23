@@ -2,9 +2,9 @@ package com.malpo.sliver.sample.ui.sample;
 
 final class SampleViewModel {
 
-    final String title;
+    private final String title;
 
-    final String message;
+    private final String message;
 
     SampleViewModel(String title, String message) {
         this.title = title;
@@ -17,5 +17,10 @@ final class SampleViewModel {
 
     String getMessage() {
         return message;
+    }
+
+    @Override
+    public String toString() {
+        return getTitle() + ": " + getMessage();
     }
 }

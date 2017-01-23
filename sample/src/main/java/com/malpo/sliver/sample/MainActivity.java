@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        getSupportFragmentManager().beginTransaction().add(R.id.main_activity_holder, new SampleViewFragment()).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.main_activity_holder, new SampleViewFragment())
+                .commit();
     }
 }
