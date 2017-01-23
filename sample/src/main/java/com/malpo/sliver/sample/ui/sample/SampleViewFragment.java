@@ -33,7 +33,7 @@ public class SampleViewFragment extends Fragment implements SampleContract.View 
         super.onCreate(savedInstanceState);
         SliverApplication.component.inject(this);
         presenter = sampleSliverComponent.presenter();
-		presenter.setView(this);
+	presenter.setView(this);
     }
 
     @Nullable
