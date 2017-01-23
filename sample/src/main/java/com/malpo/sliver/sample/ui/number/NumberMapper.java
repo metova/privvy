@@ -7,6 +7,6 @@ final class NumberMapper implements Mapper<Number, NumberViewModel> {
 
     @Override
     public final NumberViewModel map(Number number) {
-        return new NumberViewModel(number.getValue());
+        return new NumberViewModel(number.value);
     }
 }

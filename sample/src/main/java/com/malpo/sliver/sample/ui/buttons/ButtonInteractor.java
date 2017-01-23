@@ -1,13 +1,18 @@
 package com.malpo.sliver.sample.ui.buttons;
 
+import com.malpo.sliver.sample.db.FakeDb;
+
 class ButtonInteractor implements ButtonContract.Interactor {
 
-    ButtonInteractor() {
+    private FakeDb fakeDb;
+
+    ButtonInteractor(FakeDb fakeDb) {
+        this.fakeDb = fakeDb;
     }
 
     @Override
     public void incrementNumberBy(int value) {
-        //TODO increment db number value
+        fakeDb.updateNumberBy(value);
     }
 
 }

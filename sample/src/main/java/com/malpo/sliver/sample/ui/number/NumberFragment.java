@@ -22,7 +22,7 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     @Inject
     NumberComponent mNumberComponent;
 
-    @BindView(R.id.number)
+    @BindView(R.id.number_text)
     TextView number;
 
     private NumberContract.Presenter presenter;
@@ -45,15 +45,16 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        presenter.setupView();
     }
 
     @Override
     public void display(NumberViewModel viewModel) {
-        number.setText(viewModel.getNumber());
+        number.setText(String.valueOf(viewModel.getNumber()));
     }
 
     @Override
-    @OnLongClick(R.id.number)
+    @OnLongClick(R.id.number_text)
     public boolean onLongClickNumber() {
         presenter.incrementNumberBy10();
         return true;
