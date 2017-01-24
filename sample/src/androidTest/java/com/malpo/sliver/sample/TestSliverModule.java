@@ -8,7 +8,7 @@ import com.malpo.sliver.sample.ui.number.NumberModule;
 import dagger.Module;
 import dagger.Provides;
 
-@Module(subcomponents = NumberComponent.class)
+@Module(subcomponents = {NumberComponent.class, ButtonComponent.class})
 class TestSliverModule {
 
     @Provides
