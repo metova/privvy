@@ -1,5 +1,6 @@
 package com.malpo.sliver.sample.ui.buttons;
 
+import com.malpo.sliver.sample.base.BaseInteractorContract;
 import com.malpo.sliver.sample.base.BasePresenterContract;
 
 public interface ButtonContract {
@@ -9,10 +10,9 @@ public interface ButtonContract {
         void onIncrementClick();
 
         void onDecrementClick();
-
     }
 
-    interface Presenter extends BasePresenterContract{
+    interface Presenter extends BasePresenterContract {
 
         void setView(ButtonContract.View view);
 
@@ -21,7 +21,7 @@ public interface ButtonContract {
         void decrementNumber();
     }
 
-    interface Interactor {
+    interface Interactor extends BaseInteractorContract {
 
         void incrementNumberBy(int value);
     }

@@ -38,4 +38,9 @@ class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter 
         interactor.incrementNumberBy(value);
         numberUpdateKnot.changeNumber(value);
     }
+
+    @Override
+    public void onDestroyView() {
+        unsubscribeSubscriptions();
+    }
 }

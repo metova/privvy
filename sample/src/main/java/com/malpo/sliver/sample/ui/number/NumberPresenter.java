@@ -45,4 +45,9 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
         Timber.d("Incrementing number by 10");
         interactor.incrementNumberBy(10);
     }
+
+    @Override
+    public void onDestroyView() {
+        unsubscribeSubscriptions();
+    }
 }
