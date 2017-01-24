@@ -7,8 +7,12 @@ abstract class CommonCompositeSubscriber {
 
     private CompositeSubscription compositeSubscription = new CompositeSubscription();
 
-    protected void addSubscription(Subscription subscription) {
-        if (compositeSubscription != null) compositeSubscription.add(subscription);
+    protected void addSubscriptions(Subscription... subscriptions) {
+        if (compositeSubscription != null) {
+            for (Subscription s : subscriptions) {
+                compositeSubscription.add(s);
+            }
+        }
     }
 
     protected void removeSubscription(Subscription subscription) {

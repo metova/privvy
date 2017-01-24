@@ -29,9 +29,11 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
 
     @Override
     public void setupView() {
-        addSubscription(interactor.getNumber().subscribe(this::onNumberUpdated));
-        addSubscription(interactor.onNumberUpdated().subscribe(this::onNumberUpdated));
-        addSubscription(numberUpdateKnot.onNumberChanged().subscribe(view::updateFontSize));
+        addSubscriptions(
+                interactor.getNumber().subscribe(this::onNumberUpdated),
+                interactor.onNumberUpdated().subscribe(this::onNumberUpdated),
+                numberUpdateKnot.onNumberChanged().subscribe(view::updateFontSize)
+        );
     }
 
     @Override
