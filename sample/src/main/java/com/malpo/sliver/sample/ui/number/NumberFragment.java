@@ -66,4 +66,9 @@ public class NumberFragment extends Fragment implements NumberContract.View {
         presenter.incrementNumberBy10();
         return true;
     }
+
+    @Override
+    public void updateFontSize(int scale) {
+        number.setTextSize(number.getTextSize() + scale);
+    }
 }

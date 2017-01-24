@@ -2,6 +2,7 @@ package com.malpo.sliver.sample.ui.number;
 
 import com.malpo.sliver.sample.base.BasePresenter;
 import com.malpo.sliver.sample.models.Number;
+import com.malpo.sliver.sample.ui.NumberUpdateKnot;
 
 import timber.log.Timber;
 
@@ -11,10 +12,13 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
 
     private NumberContract.Interactor interactor;
 
+    private NumberUpdateKnot numberUpdateKnot;
+
     private NumberMapper mapper;
 
-    NumberPresenter(NumberContract.Interactor interactor) {
+    NumberPresenter(NumberContract.Interactor interactor, NumberUpdateKnot numberUpdateKnot) {
         this.interactor = interactor;
+        this.numberUpdateKnot = numberUpdateKnot;
         this.mapper = new NumberMapper();
     }
 
@@ -27,6 +31,7 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
     public void setupView() {
         addSubscription(interactor.getNumber().subscribe(this::onNumberUpdated));
         addSubscription(interactor.onNumberUpdated().subscribe(this::onNumberUpdated));
+        addSubscription(numberUpdateKnot.onNumberChanged().subscribe(view::updateFontSize));
     }
 
     @Override

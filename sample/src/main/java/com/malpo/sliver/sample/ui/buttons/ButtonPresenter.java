@@ -1,6 +1,7 @@
 package com.malpo.sliver.sample.ui.buttons;
 
 import com.malpo.sliver.sample.base.BasePresenter;
+import com.malpo.sliver.sample.ui.NumberUpdateKnot;
 
 import timber.log.Timber;
 
@@ -10,8 +11,11 @@ class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter 
 
     private ButtonContract.Interactor interactor;
 
-    ButtonPresenter(ButtonContract.Interactor interactor) {
+    private NumberUpdateKnot numberUpdateKnot;
+
+    ButtonPresenter(ButtonContract.Interactor interactor, NumberUpdateKnot numberUpdateKnot) {
         this.interactor = interactor;
+        this.numberUpdateKnot = numberUpdateKnot;
     }
 
     @Override
@@ -22,12 +26,16 @@ class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter 
     @Override
     public void incrementNumber() {
         Timber.d("Incrementing number");
-        interactor.incrementNumberBy(1);
+        int value = 1;
+        interactor.incrementNumberBy(value);
+        numberUpdateKnot.changeNumber(value);
     }
 
     @Override
     public void decrementNumber() {
         Timber.d("Decrementing number");
-        interactor.incrementNumberBy(-1);
+        int value = -1;
+        interactor.incrementNumberBy(value);
+        numberUpdateKnot.changeNumber(value);
     }
 }

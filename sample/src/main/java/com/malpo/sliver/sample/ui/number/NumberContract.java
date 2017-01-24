@@ -12,9 +12,11 @@ public interface NumberContract {
         boolean onLongClickNumber();
 
         void display(NumberViewModel viewModel);
+
+        void updateFontSize(int scale);
     }
 
-    interface Presenter extends BasePresenterContract{
+    interface Presenter extends BasePresenterContract {
 
         void setView(NumberContract.View view);
 
