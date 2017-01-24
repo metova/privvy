@@ -25,23 +25,19 @@ class NumberPresenter implements NumberContract.Presenter {
     @Override
     public void setupView() {
         //TODO Figure out how to unsubscribe
-        interactor.getNumber().subscribe(this::displayNumber);
+        interactor.getNumber().subscribe(this::onNumberUpdated);
         interactor.onNumberUpdated().subscribe(this::onNumberUpdated);
     }
 
     @Override
     public void onNumberUpdated(Number number) {
         Timber.d("Number updated to: %d", number.value);
-        displayNumber(number);
+        view.display(mapper.map(number));
     }
 
     @Override
     public void incrementNumberBy10() {
         Timber.d("Incrementing number by 10");
         interactor.incrementNumberBy(10);
-    }
-
-    private void displayNumber(Number number) {
-        view.display(mapper.map(number));
     }
 }
