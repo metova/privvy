@@ -1,5 +1,7 @@
 package com.malpo.sliver.sample.ui.buttons;
 
+import com.malpo.sliver.sample.db.FakeDb;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,8 +19,8 @@ public final class ButtonModule {
 
     @Provides
     @ButtonScope
-    ButtonContract.Interactor provideInteractor() {
-        return new ButtonInteractor();
+    ButtonContract.Interactor provideInteractor(FakeDb fakeDb) {
+        return new ButtonInteractor(fakeDb);
     }
 
 }

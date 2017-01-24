@@ -17,14 +17,20 @@ public interface NumberContract {
 
         void setView(NumberContract.View view);
 
+        void setupView();
+
         void incrementNumberBy10();
 
-        void onNumberUpdated(Observable<Number> number);
+        void onNumberUpdated(Number number);
     }
 
     interface Interactor {
 
+        Observable<Number> getNumber();
+
         void incrementNumberBy(int value);
+
+        Observable<Number> onNumberUpdated();
     }
 
     interface Router {

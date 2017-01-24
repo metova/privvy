@@ -1,5 +1,7 @@
 package com.malpo.sliver.sample.ui.number;
 
+import com.malpo.sliver.sample.db.FakeDb;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,8 +19,8 @@ public final class NumberModule {
 
     @Provides
     @NumberScope
-    NumberContract.Interactor provideInteractor() {
-        return new NumberInteractor();
+    NumberContract.Interactor provideInteractor(FakeDb fakeDb) {
+        return new NumberInteractor(fakeDb);
     }
 
 }

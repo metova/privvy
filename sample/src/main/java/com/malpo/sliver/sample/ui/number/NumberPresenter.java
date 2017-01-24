@@ -2,7 +2,6 @@ package com.malpo.sliver.sample.ui.number;
 
 import com.malpo.sliver.sample.models.Number;
 
-import rx.Observable;
 import timber.log.Timber;
 
 class NumberPresenter implements NumberContract.Presenter {
@@ -12,7 +11,6 @@ class NumberPresenter implements NumberContract.Presenter {
     private NumberContract.Interactor interactor;
 
     private NumberMapper mapper;
-
 
     NumberPresenter(NumberContract.Interactor interactor) {
         this.interactor = interactor;
@@ -25,8 +23,16 @@ class NumberPresenter implements NumberContract.Presenter {
     }
 
     @Override
-    public void onNumberUpdated(Observable<Number> number) {
-        number.map(mapper::map).subscribe(view::display);
+    public void setupView() {
+        //TODO Figure out how to unsubscribe
+        interactor.getNumber().subscribe(this::onNumberUpdated);
+        interactor.onNumberUpdated().subscribe(this::onNumberUpdated);
+    }
+
+    @Override
+    public void onNumberUpdated(Number number) {
+        Timber.d("Number updated to: %d", number.value);
+        view.display(mapper.map(number));
     }
 
     @Override

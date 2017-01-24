@@ -1,11 +1,14 @@
 package com.malpo.sliver.sample;
 
-import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+import android.support.test.rule.ActivityTestRule;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**k
@@ -20,6 +23,7 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void sampleTest() throws Exception {
-        onView(withText("Send")).perform(click());
+        onView(withText("+")).perform(click());
+        onView(withText("1")).check(matches(isDisplayed()));
     }
 }
