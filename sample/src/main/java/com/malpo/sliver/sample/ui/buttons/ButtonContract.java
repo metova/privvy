@@ -1,5 +1,7 @@
 package com.malpo.sliver.sample.ui.buttons;
 
+import com.malpo.sliver.sample.base.BasePresenterContract;
+
 public interface ButtonContract {
 
     interface View {
@@ -10,7 +12,7 @@ public interface ButtonContract {
 
     }
 
-    interface Presenter {
+    interface Presenter extends BasePresenterContract{
 
         void setView(ButtonContract.View view);
 

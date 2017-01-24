@@ -43,6 +43,12 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        presenter.onDestroyView();
+    }
+
+    @Override
     @OnClick(R.id.increment_button)
     public void onIncrementClick() {
         presenter.incrementNumber();

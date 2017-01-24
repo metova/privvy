@@ -1,8 +1,10 @@
 package com.malpo.sliver.sample.ui.buttons;
 
+import com.malpo.sliver.sample.base.BasePresenter;
+
 import timber.log.Timber;
 
-class ButtonPresenter implements ButtonContract.Presenter {
+class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter {
 
     private ButtonContract.View view;
 

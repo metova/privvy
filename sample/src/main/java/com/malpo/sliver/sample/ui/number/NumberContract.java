@@ -1,5 +1,6 @@
 package com.malpo.sliver.sample.ui.number;
 
+import com.malpo.sliver.sample.base.BasePresenterContract;
 import com.malpo.sliver.sample.models.Number;
 
 import rx.Observable;
@@ -13,7 +14,7 @@ public interface NumberContract {
         void display(NumberViewModel viewModel);
     }
 
-    interface Presenter {
+    interface Presenter extends BasePresenterContract{
 
         void setView(NumberContract.View view);
 
