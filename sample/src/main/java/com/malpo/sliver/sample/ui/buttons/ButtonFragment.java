@@ -46,6 +46,7 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDestroyView();
+        presenter = null;
     }
 
     @Override
