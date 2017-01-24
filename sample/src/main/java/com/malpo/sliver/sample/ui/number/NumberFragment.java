@@ -49,6 +49,13 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        presenter.onDestroyView();
+        presenter = null;
+    }
+
+    @Override
     public void display(NumberViewModel viewModel) {
         number.setText(String.valueOf(viewModel.getNumber()));
     }

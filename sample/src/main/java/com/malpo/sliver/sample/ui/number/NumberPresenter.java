@@ -1,10 +1,11 @@
 package com.malpo.sliver.sample.ui.number;
 
+import com.malpo.sliver.sample.base.BasePresenter;
 import com.malpo.sliver.sample.models.Number;
 
 import timber.log.Timber;
 
-class NumberPresenter implements NumberContract.Presenter {
+class NumberPresenter extends BasePresenter implements NumberContract.Presenter {
 
     private NumberContract.View view;
 
@@ -24,9 +25,8 @@ class NumberPresenter implements NumberContract.Presenter {
 
     @Override
     public void setupView() {
-        //TODO Figure out how to unsubscribe
-        interactor.getNumber().subscribe(this::onNumberUpdated);
-        interactor.onNumberUpdated().subscribe(this::onNumberUpdated);
+        addSubscription(interactor.getNumber().subscribe(this::onNumberUpdated));
+        addSubscription(interactor.onNumberUpdated().subscribe(this::onNumberUpdated));
     }
 
     @Override
