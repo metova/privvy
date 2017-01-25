@@ -51,5 +51,6 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
     @Override
     public void onDestroyView() {
         unsubscribeSubscriptions();
+        interactor.cancelSubscriptions();
     }
 }

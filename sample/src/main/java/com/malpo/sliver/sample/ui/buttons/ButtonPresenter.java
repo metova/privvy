@@ -42,5 +42,6 @@ class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter 
     @Override
     public void onDestroyView() {
         unsubscribeSubscriptions();
+        interactor.cancelSubscriptions();
     }
 }
