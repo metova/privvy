@@ -1,7 +1,7 @@
 package com.malpo.sliver.sample.ui.number;
 
+import com.malpo.sliver.sample.MainActivity;
 import com.malpo.sliver.sample.R;
-import com.malpo.sliver.sample.SliverApplication;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,7 +30,7 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SliverApplication.component.inject(this);
+        ((MainActivity) getActivity()).hostComponent.sliverComponent().inject(this);
         presenter = mNumberComponent.presenter();
     }
 
