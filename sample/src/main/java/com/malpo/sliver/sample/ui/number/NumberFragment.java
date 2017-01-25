@@ -52,7 +52,7 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDestroyView();
-        presenter = null;
+        presenter.setView(null);
     }
 
     @Override
@@ -69,6 +69,6 @@ public class NumberFragment extends Fragment implements NumberContract.View {
 
     @Override
     public void updateFontSize(int scale) {
-        number.setTextSize(number.getTextSize() + scale);
+        number.setTranslationX(number.getTranslationX() + (10 * scale));
     }
 }

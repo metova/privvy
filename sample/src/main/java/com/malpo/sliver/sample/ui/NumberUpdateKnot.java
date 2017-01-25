@@ -10,7 +10,7 @@ import rx.Observable;
 @Singleton
 public class NumberUpdateKnot {
 
-    PublishRelay<Integer> numberSubject = PublishRelay.create();
+    private PublishRelay<Integer> numberSubject = PublishRelay.create();
 
     @Inject
     public NumberUpdateKnot() {

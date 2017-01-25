@@ -1,11 +1,12 @@
 package com.malpo.sliver.sample.ui.number;
 
+import com.malpo.sliver.sample.base.BaseInteractor;
 import com.malpo.sliver.sample.db.FakeDb;
 import com.malpo.sliver.sample.models.Number;
 
 import rx.Observable;
 
-class NumberInteractor implements NumberContract.Interactor {
+class NumberInteractor extends BaseInteractor implements NumberContract.Interactor {
 
     private FakeDb fakeDb;
 
@@ -26,5 +27,10 @@ class NumberInteractor implements NumberContract.Interactor {
     @Override
     public Observable<Number> onNumberUpdated() {
         return fakeDb.numberUpdates();
+    }
+
+    @Override
+    public void cancelSubscriptions() {
+        unsubscribeSubscriptions();
     }
 }
