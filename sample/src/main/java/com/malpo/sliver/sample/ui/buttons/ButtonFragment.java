@@ -27,7 +27,6 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
         super.onCreate(savedInstanceState);
         SliverApplication.component.inject(this);
         presenter = buttonComponent.presenter();
-        presenter.setView(this);
     }
 
     @Nullable
@@ -40,13 +39,13 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        presenter.setView(this);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDestroyView();
-        presenter.setView(null);
     }
 
     @Override
