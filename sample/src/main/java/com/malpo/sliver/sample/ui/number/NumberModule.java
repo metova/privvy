@@ -1,5 +1,6 @@
 package com.malpo.sliver.sample.ui.number;
 
+import android.support.v7.app.AppCompatActivity;
 import com.malpo.sliver.sample.db.FakeDb;
 import com.malpo.sliver.sample.ui.NumberUpdateKnot;
 
@@ -20,8 +21,14 @@ public final class NumberModule {
 
     @Provides
     @NumberScope
-    NumberContract.Interactor provideInteractor(FakeDb fakeDb) {
-        return new NumberInteractor(fakeDb);
+    NumberContract.Interactor provideInteractor(FakeDb fakeDb, NumberContract.Router router) {
+        return new NumberInteractor(router, fakeDb);
+    }
+
+    @Provides
+    @NumberScope
+    NumberContract.Router provideRouter(AppCompatActivity activity) {
+        return new NumberRouter(activity);
     }
 
 }
