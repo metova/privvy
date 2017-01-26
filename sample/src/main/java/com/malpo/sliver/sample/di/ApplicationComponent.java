@@ -1,6 +1,7 @@
 package com.malpo.sliver.sample.di;
 
 import com.malpo.sliver.sample.ui.buttons.ButtonFragment;
+import com.malpo.sliver.sample.ui.list.ListActivity;
 import com.malpo.sliver.sample.ui.number.NumberFragment;
 
 import javax.inject.Singleton;
@@ -12,4 +13,5 @@ import dagger.Component;
 public interface ApplicationComponent {
     void inject(NumberFragment fragment);
     void inject(ButtonFragment fragment);
+    void inject(ListActivity activity);
 }

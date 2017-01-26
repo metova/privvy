@@ -2,19 +2,18 @@ package com.malpo.sliver.sample.ui.buttons;
 
 import com.malpo.sliver.sample.base.BaseInteractorContract;
 import com.malpo.sliver.sample.base.BasePresenterContract;
+import com.malpo.sliver.sample.base.BaseViewContract;
 
 public interface ButtonContract {
 
-    interface View {
+    interface View extends BaseViewContract {
 
         void onIncrementClick();
 
         void onDecrementClick();
     }
 
-    interface Presenter extends BasePresenterContract {
-
-        void setView(ButtonContract.View view);
+    interface Presenter extends BasePresenterContract<ButtonContract.View> {
 
         void incrementNumber();
 

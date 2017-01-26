@@ -5,9 +5,7 @@ import com.malpo.sliver.sample.ui.NumberUpdateKnot;
 
 import timber.log.Timber;
 
-class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter {
-
-    private ButtonContract.View view;
+class ButtonPresenter extends BasePresenter<ButtonContract.View> implements ButtonContract.Presenter {
 
     private ButtonContract.Interactor interactor;
 
@@ -16,11 +14,6 @@ class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter 
     ButtonPresenter(ButtonContract.Interactor interactor, NumberUpdateKnot numberUpdateKnot) {
         this.interactor = interactor;
         this.numberUpdateKnot = numberUpdateKnot;
-    }
-
-    @Override
-    public void setView(ButtonContract.View view) {
-        this.view = view;
     }
 
     @Override
@@ -40,8 +33,13 @@ class ButtonPresenter extends BasePresenter implements ButtonContract.Presenter 
     }
 
     @Override
+    protected void setupSubscriptions() {
+        //no op
+    }
+
+    @Override
     public void onDestroyView() {
-        unsubscribeSubscriptions();
+        super.onDestroyView();
         interactor.cancelSubscriptions();
     }
 }

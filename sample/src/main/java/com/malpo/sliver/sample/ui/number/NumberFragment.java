@@ -32,7 +32,6 @@ public class NumberFragment extends Fragment implements NumberContract.View {
         super.onCreate(savedInstanceState);
         SliverApplication.component.inject(this);
         presenter = mNumberComponent.presenter();
-        presenter.setView(this);
     }
 
     @Nullable
@@ -45,14 +44,13 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        presenter.setupView();
+        presenter.setView(this);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDestroyView();
-        presenter.setView(null);
     }
 
     @Override

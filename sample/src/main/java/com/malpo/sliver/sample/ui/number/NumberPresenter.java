@@ -6,9 +6,7 @@ import com.malpo.sliver.sample.ui.NumberUpdateKnot;
 
 import timber.log.Timber;
 
-class NumberPresenter extends BasePresenter implements NumberContract.Presenter {
-
-    private NumberContract.View view;
+class NumberPresenter extends BasePresenter<NumberContract.View> implements NumberContract.Presenter {
 
     private NumberContract.Interactor interactor;
 
@@ -23,23 +21,18 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
     }
 
     @Override
-    public void setView(NumberContract.View view) {
-        this.view = view;
-    }
-
-    @Override
-    public void setupView() {
+    protected void setupSubscriptions() {
         addSubscriptions(
                 interactor.getNumber().subscribe(this::onNumberUpdated),
                 interactor.onNumberUpdated().subscribe(this::onNumberUpdated),
-                numberUpdateKnot.onNumberChanged().subscribe(view::updateFontSize)
+                numberUpdateKnot.onNumberChanged().subscribe(getView()::updateFontSize)
         );
     }
 
     @Override
     public void onNumberUpdated(Number number) {
         Timber.d("Number updated to: %d", number.value);
-        view.display(mapper.map(number));
+        getView().display(mapper.map(number));
     }
 
     @Override
@@ -50,7 +43,7 @@ class NumberPresenter extends BasePresenter implements NumberContract.Presenter 
 
     @Override
     public void onDestroyView() {
-        unsubscribeSubscriptions();
+        super.onDestroyView();
         interactor.cancelSubscriptions();
     }
 }

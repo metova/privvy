@@ -15,9 +15,4 @@ class ButtonInteractor extends BaseInteractor implements ButtonContract.Interact
     public void incrementNumberBy(int value) {
         fakeDb.updateNumberBy(value);
     }
-
-    @Override
-    public void cancelSubscriptions() {
-        unsubscribeSubscriptions();
-    }
 }
