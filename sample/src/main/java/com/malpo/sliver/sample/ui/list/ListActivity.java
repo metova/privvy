@@ -2,6 +2,8 @@ package com.malpo.sliver.sample.ui.list;
 
 import com.malpo.sliver.sample.R;
 import com.malpo.sliver.sample.SliverApplication;
+import com.malpo.sliver.sample.di.HostComponent;
+import com.malpo.sliver.sample.di.HostModule;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -29,10 +31,18 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
 
     private ListAdapter listAdapter = new ListAdapter();
 
+    private HostComponent hostComponent;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SliverApplication.component.inject(this);
+
+        hostComponent = SliverApplication.component.newHost()
+                .hostModule(new HostModule(this))
+                .build();
+
+        hostComponent.sliverComponent().inject(this);
+
         setContentView(R.layout.list_activity);
 
         ButterKnife.bind(this);
