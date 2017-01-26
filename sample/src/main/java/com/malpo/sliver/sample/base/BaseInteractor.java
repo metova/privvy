@@ -1,9 +1,9 @@
 package com.malpo.sliver.sample.base;
 
-public abstract class BaseInteractor extends CommonCompositeSubscriber implements BaseInteractorContract{
+public abstract class BaseInteractor extends CompositeSubscriber implements Contract.Interactor {
 
     @Override
-    public void cancelSubscriptions() {
+    public void unsubscribe() {
         unsubscribeSubscriptions();
     }
 }

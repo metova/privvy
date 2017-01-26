@@ -1,15 +1,13 @@
 package com.malpo.sliver.sample.ui.number;
 
-import com.malpo.sliver.sample.base.BaseInteractorContract;
-import com.malpo.sliver.sample.base.BasePresenterContract;
-import com.malpo.sliver.sample.base.BaseViewContract;
+import com.malpo.sliver.sample.base.Contract;
 import com.malpo.sliver.sample.models.Number;
 
 import rx.Observable;
 
-public interface NumberContract {
+public interface NumberContract extends Contract {
 
-    interface View extends BaseViewContract {
+    interface View extends Contract.View {
 
         boolean onLongClickNumber();
 
@@ -18,24 +16,26 @@ public interface NumberContract {
         void updateFontSize(int scale);
     }
 
-    interface Presenter extends BasePresenterContract<NumberContract.View> {
+    interface Presenter extends Contract.Presenter<View> {
 
-        void incrementNumberBy10();
+        void incrementNumberBy();
 
         void onNumberUpdated(Number number);
     }
 
-    interface Interactor extends BaseInteractorContract {
+    interface Interactor extends Contract.Interactor {
 
         Observable<Number> getNumber();
 
         void incrementNumberBy(int value);
 
         Observable<Number> onNumberUpdated();
+
+        void navigateToList();
     }
 
     interface Router {
-
+        void navigateToList();
     }
 
 }

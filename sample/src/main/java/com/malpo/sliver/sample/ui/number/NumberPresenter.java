@@ -6,16 +6,14 @@ import com.malpo.sliver.sample.ui.NumberUpdateKnot;
 
 import timber.log.Timber;
 
-class NumberPresenter extends BasePresenter<NumberContract.View> implements NumberContract.Presenter {
-
-    private NumberContract.Interactor interactor;
+class NumberPresenter extends BasePresenter<NumberContract.View, NumberContract.Interactor> implements NumberContract.Presenter {
 
     private NumberUpdateKnot numberUpdateKnot;
 
     private NumberMapper mapper;
 
     NumberPresenter(NumberContract.Interactor interactor, NumberUpdateKnot numberUpdateKnot) {
-        this.interactor = interactor;
+        super(interactor);
         this.numberUpdateKnot = numberUpdateKnot;
         this.mapper = new NumberMapper();
     }
@@ -23,8 +21,8 @@ class NumberPresenter extends BasePresenter<NumberContract.View> implements Numb
     @Override
     protected void setupSubscriptions() {
         addSubscriptions(
-                interactor.getNumber().subscribe(this::onNumberUpdated),
-                interactor.onNumberUpdated().subscribe(this::onNumberUpdated),
+                getInteractor().getNumber().subscribe(this::onNumberUpdated),
+                getInteractor().onNumberUpdated().subscribe(this::onNumberUpdated),
                 numberUpdateKnot.onNumberChanged().subscribe(getView()::updateFontSize)
         );
     }
@@ -32,18 +30,18 @@ class NumberPresenter extends BasePresenter<NumberContract.View> implements Numb
     @Override
     public void onNumberUpdated(Number number) {
         Timber.d("Number updated to: %d", number.value);
-        getView().display(mapper.map(number));
+        if (number.value > 10) {
+            getInteractor().incrementNumberBy(-10);
+            getInteractor().navigateToList();
+        } else {
+            getView().display(mapper.map(number));
+        }
     }
 
     @Override
-    public void incrementNumberBy10() {
+    public void incrementNumberBy() {
         Timber.d("Incrementing number by 10");
-        interactor.incrementNumberBy(10);
+        getInteractor().incrementNumberBy(10);
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        interactor.cancelSubscriptions();
-    }
 }
