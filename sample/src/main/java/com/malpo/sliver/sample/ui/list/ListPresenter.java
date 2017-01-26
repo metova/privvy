@@ -30,6 +30,6 @@ class ListPresenter extends BasePresenter<ListContract.View> implements ListCont
 
     @Override
     public void goBack() {
-        // TODO: 1/25/17 ROUTE backwards
+        interactor.goBack();
     }
 }

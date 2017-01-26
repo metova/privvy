@@ -61,7 +61,7 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     @Override
     @OnLongClick(R.id.number_text)
     public boolean onLongClickNumber() {
-        presenter.incrementNumberBy10();
+        presenter.incrementNumberBy();
         return true;
     }
 

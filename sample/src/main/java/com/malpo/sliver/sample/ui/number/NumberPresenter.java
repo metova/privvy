@@ -32,11 +32,16 @@ class NumberPresenter extends BasePresenter<NumberContract.View> implements Numb
     @Override
     public void onNumberUpdated(Number number) {
         Timber.d("Number updated to: %d", number.value);
-        getView().display(mapper.map(number));
+        if (number.value > 10) {
+            interactor.incrementNumberBy(-10);
+            interactor.navigateToList();
+        } else {
+            getView().display(mapper.map(number));
+        }
     }
 
     @Override
-    public void incrementNumberBy10() {
+    public void incrementNumberBy() {
         Timber.d("Incrementing number by 10");
         interactor.incrementNumberBy(10);
     }

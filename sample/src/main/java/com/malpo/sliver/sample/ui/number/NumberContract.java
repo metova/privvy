@@ -20,7 +20,7 @@ public interface NumberContract {
 
     interface Presenter extends BasePresenterContract<NumberContract.View> {
 
-        void incrementNumberBy10();
+        void incrementNumberBy();
 
         void onNumberUpdated(Number number);
     }
@@ -32,10 +32,12 @@ public interface NumberContract {
         void incrementNumberBy(int value);
 
         Observable<Number> onNumberUpdated();
+
+        void navigateToList();
     }
 
     interface Router {
-
+        void navigateToList();
     }
 
 }

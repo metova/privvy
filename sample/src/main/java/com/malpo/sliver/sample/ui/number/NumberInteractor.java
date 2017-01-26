@@ -31,4 +31,9 @@ class NumberInteractor extends BaseInteractor implements NumberContract.Interact
     public Observable<Number> onNumberUpdated() {
         return fakeDb.numberUpdates();
     }
+
+    @Override
+    public void navigateToList() {
+        router.navigateToList();
+    }
 }

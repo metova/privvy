@@ -20,10 +20,11 @@ public interface ListContract {
     }
 
     interface Interactor extends BaseInteractorContract {
-         Observable<List<DescriptiveNumber>> fetchNumberList();
+        Observable<List<DescriptiveNumber>> fetchNumberList();
+        void goBack();
     }
 
     interface Router {
-
+        void navigateToMain();
     }
 }
