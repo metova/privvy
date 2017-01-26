@@ -31,13 +31,11 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
 
     private ListAdapter listAdapter = new ListAdapter();
 
-    private HostComponent hostComponent;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        hostComponent = SliverApplication.component.newHost()
+        HostComponent hostComponent = SliverApplication.component.newHost()
                 .hostModule(new HostModule(this))
                 .build();
 

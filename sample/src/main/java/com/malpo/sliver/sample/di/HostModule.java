@@ -16,7 +16,7 @@ public class HostModule {
 
     @Provides
     @HostScope
-    public AppCompatActivity provideActivity() {
+    AppCompatActivity provideActivity() {
         return activity;
     }
 }
