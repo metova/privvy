@@ -1,7 +1,7 @@
 package com.malpo.sliver.sample.ui.buttons;
 
+import com.malpo.sliver.sample.MainActivity;
 import com.malpo.sliver.sample.R;
-import com.malpo.sliver.sample.SliverApplication;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,7 +25,7 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SliverApplication.component.inject(this);
+        ((MainActivity) getActivity()).hostComponent.sliverComponent().inject(this);
         presenter = buttonComponent.presenter();
     }
 

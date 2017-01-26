@@ -10,7 +10,10 @@ class NumberInteractor extends BaseInteractor implements NumberContract.Interact
 
     private FakeDb fakeDb;
 
-    NumberInteractor(FakeDb fakeDb) {
+    private NumberContract.Router router;
+
+    NumberInteractor(NumberContract.Router router, FakeDb fakeDb) {
+        this.router = router;
         this.fakeDb = fakeDb;
     }
 
