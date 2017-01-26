@@ -62,6 +62,11 @@ dependencies {
 
     compile 'com.android.support:multidex:1.0.1'
 
+    //leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
     //support libs
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile('com.android.support:support-fragment:25.1.0') {
@@ -94,7 +99,6 @@ dependencies {
     compile 'io.reactivex:rxjava:1.2.2'
     compile 'com.trello:rxlifecycle:0.6.1'
     compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
-
 
     /* ANDROID TEST */
     androidTestCompile 'org.mockito:mockito-core:2.2.13'
