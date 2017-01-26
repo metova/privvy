@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         hostComponent = SliverApplication.component.newHost()
-                .numberModule(new HostModule(this))
+                .hostModule(new HostModule(this))
                 .build();
 
         setContentView(R.layout.main_activity);

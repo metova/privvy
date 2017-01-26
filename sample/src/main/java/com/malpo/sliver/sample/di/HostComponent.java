@@ -11,7 +11,7 @@ public interface HostComponent {
     @Subcomponent.Builder
     interface Builder {
 
-        HostComponent.Builder numberModule(HostModule module);
+        HostComponent.Builder hostModule(HostModule module);
 
         HostComponent build();
     }
