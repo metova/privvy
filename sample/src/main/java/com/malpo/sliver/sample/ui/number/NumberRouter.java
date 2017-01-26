@@ -8,7 +8,6 @@ import timber.log.Timber;
 
 class NumberRouter implements NumberContract.Router {
 
-    //TODO Should probably be WeakReference? Or Interactor needs callback to set router to null
     private AppCompatActivity activity;
 
     NumberRouter(AppCompatActivity activity) {
