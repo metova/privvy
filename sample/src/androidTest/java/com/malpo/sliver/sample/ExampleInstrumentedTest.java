@@ -4,10 +4,12 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import android.support.test.rule.ActivityTestRule;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.longClick;
+import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -21,7 +23,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class ExampleInstrumentedTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class, false, false);
+    public IntentsTestRule<MainActivity> activityTestRule = new IntentsTestRule<>(MainActivity.class, false, false);
 
     @Before
     public void setup() {
@@ -41,5 +43,16 @@ public class ExampleInstrumentedTest {
         onView(withText("0")).check(matches(isDisplayed()));
         onView(withText("-")).perform(click());
         onView(withText("-1")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void longPressNumber_navigatesToNumberList() {
+        onView(withText("Back")).check(doesNotExist());
+
+        onView(withText("0")).check(matches(isDisplayed()));
+        onView(withText("+")).perform(click());
+        onView(withText("1")).perform(longClick());
+
+        onView(withText("Back")).check(matches(isDisplayed()));
     }
 }
