@@ -55,7 +55,7 @@ public class NumberFragment extends Fragment implements NumberContract.View {
 
     @Override
     public void display(NumberViewModel viewModel) {
-        number.setText(String.valueOf(viewModel.getNumber()));
+        number.setText(String.valueOf(viewModel.number()));
     }
 
     @Override

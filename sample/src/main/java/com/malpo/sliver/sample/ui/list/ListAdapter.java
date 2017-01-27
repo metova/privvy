@@ -28,8 +28,8 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
 
     @Override
     public void onBindViewHolder(ListHolder holder, int position) {
-        holder.description.setText(String.valueOf(numbers.get(position).getDescription()));
-        holder.value.setText(String.valueOf(numbers.get(position).getNumber()));
+        holder.description.setText(String.valueOf(numbers.get(position).description()));
+        holder.value.setText(String.valueOf(numbers.get(position).number()));
     }
 
     @Override
