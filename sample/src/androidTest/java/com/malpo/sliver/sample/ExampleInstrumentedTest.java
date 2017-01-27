@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import android.support.test.espresso.intent.rule.IntentsTestRule;
+import android.support.test.rule.ActivityTestRule;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -15,7 +15,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * k
+ * 
  * Instrumentation test, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
@@ -23,7 +23,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class ExampleInstrumentedTest {
 
     @Rule
-    public IntentsTestRule<MainActivity> activityTestRule = new IntentsTestRule<>(MainActivity.class, false, false);
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class, false, false);
 
     @Before
     public void setup() {
