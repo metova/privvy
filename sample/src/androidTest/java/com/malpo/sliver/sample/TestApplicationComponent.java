@@ -7,7 +7,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {TestApplicationModule.class, TestSliverModule.class})
-interface TestComponent extends ApplicationComponent {
+@Component(modules = {TestApplicationModule.class})
+interface TestApplicationComponent extends ApplicationComponent {
 
 }

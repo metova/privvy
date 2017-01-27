@@ -7,6 +7,6 @@ import javax.inject.Scope;
 
 @Scope
 @Retention(RetentionPolicy.RUNTIME)
-@interface HostScope {
+public @interface HostScope {
 
 }

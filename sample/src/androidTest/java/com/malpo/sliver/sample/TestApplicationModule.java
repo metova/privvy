@@ -1,12 +1,12 @@
 package com.malpo.sliver.sample;
 
 import android.content.Context;
-import dagger.Module;
-import dagger.Provides;
-import org.mockito.Mockito;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 
 import static org.mockito.Mockito.mock;
 

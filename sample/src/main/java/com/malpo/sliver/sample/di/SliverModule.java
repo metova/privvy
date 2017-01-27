@@ -16,7 +16,7 @@ import dagger.Provides;
         ListComponent.class,
 //        SkeletonComponent.class
 })
-class SliverModule {
+public class SliverModule {
 
     @Provides
     NumberComponent provideNumberComponent(NumberComponent.Builder builder) {
