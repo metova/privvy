@@ -35,6 +35,7 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //since this activity is its own host, we have to build its component right here
         HostComponent hostComponent = SliverApplication.component.newHost()
                 .hostModule(new HostModule(this))
                 .build();
@@ -45,11 +46,17 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
 
         ButterKnife.bind(this);
 
+        //obtain the presenter from the host
         presenter = listComponent.presenter();
 
+        //build the adapter -- this will start out with no data, as we don't want
+        //to slow down the onCreate with calls to the database, nor pollute the view's logic
         numberList.setLayoutManager(new LinearLayoutManager(this));
         numberList.setAdapter(listAdapter);
 
+        //Setting the view to this not only allows the presenter to control the view,
+        //but setView() also implicitly sets up the presenter's observable stream (which fetches the adapter data).
+        //See {@link BasePresenter} as well as {@link ListPresenter} to see how the stream is set up.
         presenter.setView(this);
     }
 

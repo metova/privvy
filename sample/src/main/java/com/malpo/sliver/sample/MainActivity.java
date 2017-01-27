@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Build the HostComponent which will house the different VIPER components
         hostComponent = SliverApplication.component.newHost()
                 .hostModule(new HostModule(this))
                 .build();
