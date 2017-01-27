@@ -1,20 +1,13 @@
 package com.malpo.sliver.sample.ui.list;
 
-final class ListViewModel {
+import com.google.auto.value.AutoValue;
 
-    private final int number;
-    private final String description;
+@AutoValue abstract class ListViewModel {
 
-    ListViewModel(final int number, final String description) {
-        this.number = number;
-        this.description = description;
-    }
+    public abstract int number();
+    public abstract String description();
 
-    public int getNumber() {
-        return number;
-    }
-
-    public String getDescription() {
-        return description;
+    public static ListViewModel create(int number, String description) {
+        return new AutoValue_ListViewModel(number, description);
     }
 }
