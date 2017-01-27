@@ -25,7 +25,12 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Must obtain the host component from the parent activity in order to inject a fragment,
+        //as a host is always an activity
         ((MainActivity) getActivity()).hostComponent.sliverComponent().inject(this);
+
+        //obtain the presenter from the host
         presenter = buttonComponent.presenter();
     }
 
@@ -39,12 +44,17 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+
+        //This is required in order for the presenter to tell this view how to behave
         presenter.setView(this);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
+        //This is required in order to prevent a memory leak. The onDestroyView method also
+        //unsubscribes from any observable streams. See {@link BasePresenter}
         presenter.onDestroyView();
     }
 
