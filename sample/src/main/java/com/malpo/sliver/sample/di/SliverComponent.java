@@ -15,4 +15,6 @@ public interface SliverComponent {
     void inject(NumberFragment fragment);
 
     void inject(ListActivity activity);
+
+//    void inject(SkeletonFragment fragment);
 }
