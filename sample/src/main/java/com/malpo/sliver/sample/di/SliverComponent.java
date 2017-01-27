@@ -6,6 +6,9 @@ import com.malpo.sliver.sample.ui.number.NumberFragment;
 
 import dagger.Subcomponent;
 
+/**
+ * The SliverComponent contains every VIPER component in the application
+ */
 @SliverScope
 @Subcomponent(modules = SliverModule.class)
 public interface SliverComponent {
