@@ -1,19 +1,13 @@
 package com.malpo.sliver.sample.ui.number;
 
-final class NumberViewModel {
 
-    private final int number;
+import com.google.auto.value.AutoValue;
 
-    NumberViewModel(int number) {
-        this.number = number;
-    }
+@AutoValue abstract class NumberViewModel {
 
-    public int getNumber() {
-        return number;
-    }
+    public abstract int number();
 
-    @Override
-    public String toString() {
-        return String.valueOf(getNumber());
+    public static NumberViewModel create(int number) {
+        return new AutoValue_NumberViewModel(number);
     }
 }
