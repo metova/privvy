@@ -1,5 +1,7 @@
 package com.malpo.sliver.sample.ui.skeleton;
 
+import android.support.v7.app.AppCompatActivity;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -23,8 +25,8 @@ public final class SkeletonModule {
 
     @Provides
     @SkeletonScope
-    SkeletonContract.Router provideRouter() {
-        return new SkeletonRouter();
+    SkeletonContract.Router provideRouter(AppCompatActivity appCompatActivity) {
+        return new SkeletonRouter(appCompatActivity);
     }
 
 }

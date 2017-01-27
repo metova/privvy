@@ -1,25 +1,20 @@
 package com.malpo.sliver.sample.ui.list;
 
 import com.malpo.sliver.sample.MainActivity;
+import com.malpo.sliver.sample.base.BaseRouter;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
-import timber.log.Timber;
-
-class ListRouter implements ListContract.Router {
-
-    private AppCompatActivity activity;
+class ListRouter extends BaseRouter implements ListContract.Router {
 
     ListRouter(AppCompatActivity activity) {
-        this.activity = activity;
-        Timber.d(activity.getLocalClassName());
+        super(activity);
     }
 
     @Override
     public void navigateToMain() {
-        Intent intent = new Intent(activity, MainActivity.class);
-        activity.startActivity(intent);
-        activity.finish();
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        getActivity().startActivity(intent);
     }
 }

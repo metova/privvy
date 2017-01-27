@@ -1,5 +1,12 @@
 package com.malpo.sliver.sample.ui.skeleton;
 
-class SkeletonRouter implements SkeletonContract.Router {
+import com.malpo.sliver.sample.base.BaseRouter;
 
+import android.support.v7.app.AppCompatActivity;
+
+class SkeletonRouter extends BaseRouter implements SkeletonContract.Router {
+
+    public SkeletonRouter(AppCompatActivity activity) {
+        super(activity);
+    }
 }
