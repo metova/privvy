@@ -25,7 +25,7 @@ public class ButtonFragment extends Fragment implements ButtonContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((MainActivity) getActivity()).hostComponent.sliverComponent().inject(this);
+        ((MainActivity) getActivity()).hostComponent.newSliverComponent().inject(this);
         presenter = buttonComponent.presenter();
     }
 

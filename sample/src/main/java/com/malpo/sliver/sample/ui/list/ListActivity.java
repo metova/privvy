@@ -39,7 +39,7 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
                 .hostModule(new HostModule(this))
                 .build();
 
-        hostComponent.sliverComponent().inject(this);
+        hostComponent.newSliverComponent().inject(this);
 
         setContentView(R.layout.list_activity);
 
