@@ -4,11 +4,11 @@ import com.jakewharton.rxrelay.PublishRelay;
 
 import rx.Observable;
 
-public class NumberUpdateKnotImpl implements NumberUpdateKnot {
+public class NumberUpdateYokeImpl implements NumberUpdateYoke {
 
     private PublishRelay<Integer> numberSubject = PublishRelay.create();
 
-    public NumberUpdateKnotImpl() {
+    public NumberUpdateYokeImpl() {
     }
 
     @Override

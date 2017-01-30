@@ -3,7 +3,7 @@ package com.metova.privvy.sample.di;
 import dagger.Subcomponent;
 
 @HostScope
-@Subcomponent(modules = {HostModule.class, KnotModule.class})
+@Subcomponent(modules = {HostModule.class, YokeModule.class})
 public interface HostComponent {
 
     PrivvyComponent newPrivvyComponent();

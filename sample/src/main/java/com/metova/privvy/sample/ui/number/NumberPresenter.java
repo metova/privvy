@@ -2,19 +2,19 @@ package com.metova.privvy.sample.ui.number;
 
 import com.metova.privvy.sample.base.BasePresenter;
 import com.metova.privvy.sample.models.Number;
-import com.metova.privvy.sample.ui.NumberUpdateKnot;
+import com.metova.privvy.sample.ui.NumberUpdateYoke;
 
 import timber.log.Timber;
 
 class NumberPresenter extends BasePresenter<NumberContract.View, NumberContract.Interactor> implements NumberContract.Presenter {
 
-    private NumberUpdateKnot numberUpdateKnot;
+    private NumberUpdateYoke mNumberUpdateYoke;
 
     private NumberMapper mapper;
 
-    NumberPresenter(NumberContract.Interactor interactor, NumberUpdateKnot numberUpdateKnot) {
+    NumberPresenter(NumberContract.Interactor interactor, NumberUpdateYoke numberUpdateYoke) {
         super(interactor);
-        this.numberUpdateKnot = numberUpdateKnot;
+        this.mNumberUpdateYoke = numberUpdateYoke;
         this.mapper = new NumberMapper();
     }
 
@@ -23,7 +23,7 @@ class NumberPresenter extends BasePresenter<NumberContract.View, NumberContract.
         addSubscriptions(
                 getInteractor().getNumber().subscribe(this::onNumberUpdated),
                 getInteractor().onNumberUpdated().subscribe(this::onNumberUpdated),
-                numberUpdateKnot.onNumberChanged().subscribe(getView()::updateFontSize)
+                mNumberUpdateYoke.onNumberChanged().subscribe(getView()::updateFontSize)
         );
     }
 

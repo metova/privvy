@@ -1,6 +1,6 @@
 package com.metova.privvy.sample.ui.buttons;
 
-import com.metova.privvy.sample.ui.NumberUpdateKnot;
+import com.metova.privvy.sample.ui.NumberUpdateYoke;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,14 +16,14 @@ public class ButtonPresenterTest {
     public ButtonContract.Interactor mockInteractor;
 
     @Mock
-    public NumberUpdateKnot mockKnot;
+    public NumberUpdateYoke mockYoke;
 
     private ButtonPresenter buttonPresenter;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        buttonPresenter = new ButtonPresenter(mockInteractor, mockKnot);
+        buttonPresenter = new ButtonPresenter(mockInteractor, mockYoke);
     }
 
     @Test
@@ -33,9 +33,9 @@ public class ButtonPresenterTest {
     }
 
     @Test
-    public void incrementNumber_changesKnotNumberByOne() {
+    public void incrementNumber_changesYokeNumberByOne() {
         buttonPresenter.incrementNumber();
-        verify(mockKnot).changeNumber(eq(1));
+        verify(mockYoke).changeNumber(eq(1));
     }
 
     @Test
@@ -45,9 +45,9 @@ public class ButtonPresenterTest {
     }
 
     @Test
-    public void decrementNumber_changesKnotNumberByNegativeOne() {
+    public void decrementNumber_changesYokeNumberByNegativeOne() {
         buttonPresenter.decrementNumber();
-        verify(mockKnot).changeNumber(eq(-1));
+        verify(mockYoke).changeNumber(eq(-1));
     }
 
 }

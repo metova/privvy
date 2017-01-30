@@ -2,7 +2,7 @@ package com.metova.privvy.sample.ui;
 
 import rx.Observable;
 
-public interface NumberUpdateKnot {
+public interface NumberUpdateYoke {
 
     Observable<Integer> onNumberChanged();
 

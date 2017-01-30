@@ -1,7 +1,7 @@
 package com.metova.privvy.sample.ui.number;
 
 import com.metova.privvy.sample.db.FakeDb;
-import com.metova.privvy.sample.ui.NumberUpdateKnot;
+import com.metova.privvy.sample.ui.NumberUpdateYoke;
 
 import android.support.v7.app.AppCompatActivity;
 
@@ -16,8 +16,8 @@ public final class NumberModule {
 
     @Provides
     @NumberScope
-    NumberContract.Presenter providePresenter(NumberContract.Interactor interactor, NumberUpdateKnot numberUpdateKnot) {
-        return new NumberPresenter(interactor, numberUpdateKnot);
+    NumberContract.Presenter providePresenter(NumberContract.Interactor interactor, NumberUpdateYoke numberUpdateYoke) {
+        return new NumberPresenter(interactor, numberUpdateYoke);
     }
 
     @Provides
