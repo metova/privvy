@@ -1,8 +1,6 @@
-package com.metova.privvy.sample.ui.buttons;
+package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
 import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
-import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonContract;
-import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonPresenter;
 
 import org.junit.Before;
 import org.junit.Test;

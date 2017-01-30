@@ -1,7 +1,6 @@
-package com.metova.privvy.sample.ui.buttons;
+package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
 import com.metova.privvy.sample.db.FakeDb;
-import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonInteractor;
 
 import org.junit.Before;
 import org.junit.Test;

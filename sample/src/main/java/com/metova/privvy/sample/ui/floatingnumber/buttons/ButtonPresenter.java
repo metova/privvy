@@ -7,11 +7,11 @@ import timber.log.Timber;
 
 class ButtonPresenter extends BasePresenter<ButtonContract.View, ButtonContract.Interactor> implements ButtonContract.Presenter {
 
-    private NumberUpdateYoke mNumberUpdateYoke;
+    private NumberUpdateYoke numberUpdateYoke;
 
     ButtonPresenter(ButtonContract.Interactor interactor, NumberUpdateYoke numberUpdateYoke) {
         super(interactor);
-        this.mNumberUpdateYoke = numberUpdateYoke;
+        this.numberUpdateYoke = numberUpdateYoke;
     }
 
     @Override
@@ -19,7 +19,7 @@ class ButtonPresenter extends BasePresenter<ButtonContract.View, ButtonContract.
         Timber.d("Incrementing number");
         int value = 1;
         getInteractor().incrementNumberBy(value);
-        mNumberUpdateYoke.changeNumber(value);
+        numberUpdateYoke.changeNumber(value);
     }
 
     @Override
@@ -27,7 +27,7 @@ class ButtonPresenter extends BasePresenter<ButtonContract.View, ButtonContract.
         Timber.d("Decrementing number");
         int value = -1;
         getInteractor().incrementNumberBy(value);
-        mNumberUpdateYoke.changeNumber(value);
+        numberUpdateYoke.changeNumber(value);
     }
 
     @Override
