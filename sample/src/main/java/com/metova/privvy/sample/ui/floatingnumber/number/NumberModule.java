@@ -1,7 +1,7 @@
-package com.metova.privvy.sample.ui.number;
+package com.metova.privvy.sample.ui.floatingnumber.number;
 
 import com.metova.privvy.sample.db.FakeDb;
-import com.metova.privvy.sample.ui.NumberUpdateYoke;
+import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
 
 import android.support.v7.app.AppCompatActivity;
 

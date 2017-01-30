@@ -1,7 +1,7 @@
 package com.metova.privvy.sample.di;
 
-import com.metova.privvy.sample.ui.NumberUpdateYoke;
-import com.metova.privvy.sample.ui.NumberUpdateYokeImpl;
+import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
+import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYokeImpl;
 
 import dagger.Module;
 import dagger.Provides;

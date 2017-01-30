@@ -1,4 +1,4 @@
-package com.metova.privvy.sample.ui.number;
+package com.metova.privvy.sample.ui.floatingnumber.number;
 
 import com.metova.privvy.sample.base.Mapper;
 import com.metova.privvy.sample.models.Number;

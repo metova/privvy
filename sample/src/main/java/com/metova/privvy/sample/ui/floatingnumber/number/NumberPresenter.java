@@ -1,8 +1,8 @@
-package com.metova.privvy.sample.ui.number;
+package com.metova.privvy.sample.ui.floatingnumber.number;
 
 import com.metova.privvy.sample.base.BasePresenter;
 import com.metova.privvy.sample.models.Number;
-import com.metova.privvy.sample.ui.NumberUpdateYoke;
+import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
 
 import timber.log.Timber;
 

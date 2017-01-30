@@ -1,7 +1,7 @@
-package com.metova.privvy.sample.ui.buttons;
+package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
 import com.metova.privvy.sample.base.BasePresenter;
-import com.metova.privvy.sample.ui.NumberUpdateYoke;
+import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
 
 import timber.log.Timber;
 

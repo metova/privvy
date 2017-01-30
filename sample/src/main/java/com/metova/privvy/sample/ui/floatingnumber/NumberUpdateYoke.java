@@ -1,4 +1,4 @@
-package com.metova.privvy.sample.ui;
+package com.metova.privvy.sample.ui.floatingnumber;
 
 import rx.Observable;
 

@@ -9,12 +9,12 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="com.metova.privvy.sample.ui.number.NumberFragment"
+        android:name="com.metova.privvy.sample.ui.floatingnumber.number.NumberFragment"
         android:layout_marginBottom="20dp" />
 
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="com.metova.privvy.sample.ui.buttons.ButtonFragment" />
+        android:name="com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonFragment" />
 
 </LinearLayout>

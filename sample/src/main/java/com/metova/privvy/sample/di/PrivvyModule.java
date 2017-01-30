@@ -1,11 +1,11 @@
 package com.metova.privvy.sample.di;
 
-import com.metova.privvy.sample.ui.buttons.ButtonComponent;
-import com.metova.privvy.sample.ui.buttons.ButtonModule;
+import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonComponent;
+import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonModule;
 import com.metova.privvy.sample.ui.list.ListComponent;
 import com.metova.privvy.sample.ui.list.ListModule;
-import com.metova.privvy.sample.ui.number.NumberComponent;
-import com.metova.privvy.sample.ui.number.NumberModule;
+import com.metova.privvy.sample.ui.floatingnumber.number.NumberComponent;
+import com.metova.privvy.sample.ui.floatingnumber.number.NumberModule;
 
 import dagger.Module;
 import dagger.Provides;

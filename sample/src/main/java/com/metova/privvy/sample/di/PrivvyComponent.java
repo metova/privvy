@@ -1,8 +1,8 @@
 package com.metova.privvy.sample.di;
 
-import com.metova.privvy.sample.ui.buttons.ButtonFragment;
+import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonFragment;
 import com.metova.privvy.sample.ui.list.ListActivity;
-import com.metova.privvy.sample.ui.number.NumberFragment;
+import com.metova.privvy.sample.ui.floatingnumber.number.NumberFragment;
 
 import dagger.Subcomponent;
 
