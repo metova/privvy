@@ -39,13 +39,13 @@ public class ButtonPresenterTest {
     }
 
     @Test
-    public void decrementNumber_incrementsInteractorByOne() {
+    public void decrementNumber_incrementsInteractorByNegativeOne() {
         buttonPresenter.decrementNumber();
         verify(mockInteractor).incrementNumberBy(eq(-1));
     }
 
     @Test
-    public void decrementNumber_changesKnotNumberByOne() {
+    public void decrementNumber_changesKnotNumberByNegativeOne() {
         buttonPresenter.decrementNumber();
         verify(mockKnot).changeNumber(eq(-1));
     }
