@@ -1,5 +1,7 @@
 package com.malpo.sliver.sample.base;
 
+import android.support.v7.app.AppCompatActivity;
+
 public interface Contract {
 
     interface View {
@@ -17,6 +19,11 @@ public interface Contract {
     interface Interactor {
 
         void unsubscribe();
+    }
+
+    interface Router {
+
+        AppCompatActivity getActivity();
     }
 
 }

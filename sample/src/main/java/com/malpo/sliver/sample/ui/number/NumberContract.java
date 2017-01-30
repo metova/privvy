@@ -34,7 +34,7 @@ public interface NumberContract extends Contract {
         void navigateToList();
     }
 
-    interface Router {
+    interface Router extends Contract.Router {
         void navigateToList();
     }
 

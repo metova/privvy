@@ -13,7 +13,8 @@ import dagger.Provides;
 @Module(subcomponents = {
         NumberComponent.class,
         ButtonComponent.class,
-        ListComponent.class
+        ListComponent.class,
+//        SkeletonComponent.class
 })
 class SliverModule {
 
@@ -31,4 +32,9 @@ class SliverModule {
     ListComponent provideListComponent(ListComponent.Builder builder) {
         return builder.listModule(new ListModule()).build();
     }
+
+//    @Provides
+//    SkeletonComponent provideSkeletonComponent(SkeletonComponent.Builder builder) {
+//        return builder.skeletonModule(new SkeletonModule()).build();
+//    }
 }

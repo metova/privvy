@@ -30,7 +30,7 @@ public class NumberFragment extends Fragment implements NumberContract.View {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((MainActivity) getActivity()).hostComponent.sliverComponent().inject(this);
+        ((MainActivity) getActivity()).hostComponent.newSliverComponent().inject(this);
         presenter = mNumberComponent.presenter();
     }
 

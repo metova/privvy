@@ -6,7 +6,7 @@ import dagger.Subcomponent;
 @Subcomponent(modules = HostModule.class)
 public interface HostComponent {
 
-    SliverComponent sliverComponent();
+    SliverComponent newSliverComponent();
 
     @Subcomponent.Builder
     interface Builder {
