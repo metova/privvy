@@ -3,7 +3,7 @@ package com.malpo.sliver.sample.di;
 import dagger.Subcomponent;
 
 @HostScope
-@Subcomponent(modules = HostModule.class)
+@Subcomponent(modules = {HostModule.class, KnotModule.class})
 public interface HostComponent {
 
     SliverComponent newSliverComponent();

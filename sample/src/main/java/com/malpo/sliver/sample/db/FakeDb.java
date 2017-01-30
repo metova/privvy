@@ -39,12 +39,16 @@ public class FakeDb {
     public Observable<List<DescriptiveNumber>> getNumberList() {
         List<DescriptiveNumber> list = new ArrayList<>();
 
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 10; i++) {
             DescriptiveNumber num = new DescriptiveNumber();
             num.description = "Number: ";
             num.value = i;
             list.add(num);
         }
         return Observable.just(list);
+    }
+
+    public void setNumberValue(int value) {
+        number.value = value;
     }
 }

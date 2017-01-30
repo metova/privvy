@@ -1,8 +1,9 @@
 package com.malpo.sliver.sample.ui.number;
 
-import android.support.v7.app.AppCompatActivity;
 import com.malpo.sliver.sample.db.FakeDb;
 import com.malpo.sliver.sample.ui.NumberUpdateKnot;
+
+import android.support.v7.app.AppCompatActivity;
 
 import dagger.Module;
 import dagger.Provides;

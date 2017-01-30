@@ -8,7 +8,7 @@ public class TestSliverApplication extends SliverApplication {
     @Override
     protected ApplicationComponent buildComponent() {
         Timber.d("Building test component");
-        return DaggerTestComponent.builder()
+        return DaggerTestApplicationComponent.builder()
                 .testApplicationModule(new TestApplicationModule()).build();
     }
 }
