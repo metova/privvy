@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 class SkeletonRouter extends BaseRouter implements SkeletonContract.Router {
 
-    public SkeletonRouter(AppCompatActivity activity) {
+    SkeletonRouter(AppCompatActivity activity) {
         super(activity);
     }
 }

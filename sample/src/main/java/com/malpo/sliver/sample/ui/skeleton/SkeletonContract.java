@@ -16,7 +16,7 @@ public interface SkeletonContract extends Contract {
 
     }
 
-    interface Router {
+    interface Router extends Contract.Router {
 
     }
 

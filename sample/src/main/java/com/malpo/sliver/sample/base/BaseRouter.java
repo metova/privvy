@@ -2,7 +2,7 @@ package com.malpo.sliver.sample.base;
 
 import android.support.v7.app.AppCompatActivity;
 
-public class BaseRouter {
+public class BaseRouter implements Contract.Router {
 
     private AppCompatActivity activity;
 
@@ -14,7 +14,8 @@ public class BaseRouter {
         this.activity = activity;
     }
 
-    protected AppCompatActivity getActivity() {
+    @Override
+    public AppCompatActivity getActivity() {
         return activity;
     }
 
