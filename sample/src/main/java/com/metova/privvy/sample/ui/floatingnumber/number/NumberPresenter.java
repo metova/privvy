@@ -8,13 +8,13 @@ import timber.log.Timber;
 
 class NumberPresenter extends BasePresenter<NumberContract.View, NumberContract.Interactor> implements NumberContract.Presenter {
 
-    private NumberUpdateYoke mNumberUpdateYoke;
+    private NumberUpdateYoke numberUpdateYoke;
 
     private NumberMapper mapper;
 
     NumberPresenter(NumberContract.Interactor interactor, NumberUpdateYoke numberUpdateYoke) {
         super(interactor);
-        this.mNumberUpdateYoke = numberUpdateYoke;
+        this.numberUpdateYoke = numberUpdateYoke;
         this.mapper = new NumberMapper();
     }
 
@@ -23,7 +23,7 @@ class NumberPresenter extends BasePresenter<NumberContract.View, NumberContract.
         addSubscriptions(
                 getInteractor().getNumber().subscribe(this::onNumberUpdated),
                 getInteractor().onNumberUpdated().subscribe(this::onNumberUpdated),
-                mNumberUpdateYoke.onNumberChanged().subscribe(getView()::updateFontSize)
+                numberUpdateYoke.onNumberChanged().subscribe(getView()::updateFontSize)
         );
     }
 
