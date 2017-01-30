@@ -7,12 +7,12 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.malpo.sliver"
+        applicationId "com.metova.privvy"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "0.0.1"
-        testInstrumentationRunner "com.malpo.sliver.sample.SliverTestRunner"
+        testInstrumentationRunner "com.metova.privvy.sample.SampleTestRunner"
         multiDexEnabled true
     }
     signingConfigs {
@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':sliver')
+    compile project(':privvy')
 
     compile 'com.android.support:multidex:1.0.1'
 
