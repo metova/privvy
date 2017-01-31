@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ListActivity extends AppCompatActivity implements ListContract.View {
+public class ListActivity extends AppCompatActivity implements ListContract.View, ListAdapter.ListClickCallback {
 
     @Inject
     ListComponent listComponent;
@@ -29,7 +29,7 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
 
     private ListContract.Presenter presenter;
 
-    private ListAdapter listAdapter = new ListAdapter();
+    private ListAdapter listAdapter = new ListAdapter(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +59,11 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
     }
 
     @Override
+    public void updateListItem(ListViewModel number) {
+        listAdapter.setListItem(number);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         presenter.onDestroyView();
@@ -68,4 +73,10 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
     public void onBackClicked() {
         presenter.goBack();
     }
+
+    @Override
+    public void onItemClicked(int position) {
+        presenter.onClickTile(position);
+    }
+
 }

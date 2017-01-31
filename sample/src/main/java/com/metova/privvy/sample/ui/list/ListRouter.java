@@ -16,5 +16,6 @@ class ListRouter extends BaseRouter implements ListContract.Router {
     public void navigateToMain() {
         Intent intent = new Intent(getActivity(), MainActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 }

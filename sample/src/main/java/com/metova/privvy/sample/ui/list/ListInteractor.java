@@ -27,4 +27,9 @@ class ListInteractor extends BaseInteractor implements ListContract.Interactor {
     public void goBack() {
         router.navigateToMain();
     }
+
+    @Override
+    public Observable<DescriptiveNumber> updateListItem(int position) {
+        return fakeDb.updateListItem(position);
+    }
 }
