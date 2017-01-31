@@ -1,12 +1,12 @@
 package com.metova.privvy.sample.ui.floatingnumber.number;
 
-import com.metova.privvy.sample.base.BaseInteractor;
+import com.metova.privvy.PrivvyInteractor;
 import com.metova.privvy.sample.db.FakeDb;
 import com.metova.privvy.sample.models.Number;
 
 import rx.Observable;
 
-class NumberInteractor extends BaseInteractor implements NumberContract.Interactor {
+class NumberInteractor extends PrivvyInteractor implements NumberContract.Interactor {
 
     private FakeDb fakeDb;
 

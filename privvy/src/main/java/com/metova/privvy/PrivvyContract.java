@@ -1,14 +1,14 @@
-package com.metova.privvy.sample.base;
+package com.metova.privvy;
 
 import android.support.v7.app.AppCompatActivity;
 
-public interface Contract {
+public interface PrivvyContract {
 
     interface View {
 
     }
 
-    interface Presenter<T extends Contract.View> {
+    interface Presenter<T extends PrivvyContract.View> {
 
         void setView(T view);
 

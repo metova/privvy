@@ -1,4 +1,4 @@
-package com.metova.privvy.sample.base;
+package com.metova.privvy;
 
 import java.util.ArrayList;
 import java.util.List;

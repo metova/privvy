@@ -1,6 +1,6 @@
 package com.metova.privvy.sample.ui.list;
 
-import com.metova.privvy.sample.base.Mapper;
+import com.metova.privvy.Mapper;
 import com.metova.privvy.sample.models.DescriptiveNumber;
 
 final class ListMapper extends Mapper<DescriptiveNumber, ListViewModel> {

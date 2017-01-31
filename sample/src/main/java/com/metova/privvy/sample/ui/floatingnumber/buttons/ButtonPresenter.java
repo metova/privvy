@@ -1,11 +1,11 @@
 package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
-import com.metova.privvy.sample.base.BasePresenter;
+import com.metova.privvy.PrivvyPresenter;
 import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
 
 import timber.log.Timber;
 
-class ButtonPresenter extends BasePresenter<ButtonContract.View, ButtonContract.Interactor> implements ButtonContract.Presenter {
+class ButtonPresenter extends PrivvyPresenter<ButtonContract.View, ButtonContract.Interactor> implements ButtonContract.Presenter {
 
     private NumberUpdateYoke numberUpdateYoke;
 

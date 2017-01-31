@@ -1,24 +1,24 @@
 package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
-import com.metova.privvy.sample.base.Contract;
+import com.metova.privvy.PrivvyContract;
 
-public interface ButtonContract extends Contract {
+public interface ButtonContract extends PrivvyContract {
 
-    interface View extends Contract.View {
+    interface View extends PrivvyContract.View {
 
         void onIncrementClick();
 
         void onDecrementClick();
     }
 
-    interface Presenter extends Contract.Presenter<View> {
+    interface Presenter extends PrivvyContract.Presenter<View> {
 
         void incrementNumber();
 
         void decrementNumber();
     }
 
-    interface Interactor extends Contract.Interactor {
+    interface Interactor extends PrivvyContract.Interactor {
 
         void incrementNumberBy(int value);
     }

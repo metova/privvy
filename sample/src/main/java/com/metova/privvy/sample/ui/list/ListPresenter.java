@@ -1,8 +1,8 @@
 package com.metova.privvy.sample.ui.list;
 
-import com.metova.privvy.sample.base.BasePresenter;
+import com.metova.privvy.PrivvyPresenter;
 
-class ListPresenter extends BasePresenter<ListContract.View, ListContract.Interactor> implements ListContract.Presenter {
+class ListPresenter extends PrivvyPresenter<ListContract.View, ListContract.Interactor> implements ListContract.Presenter {
 
     private ListMapper mapper;
 

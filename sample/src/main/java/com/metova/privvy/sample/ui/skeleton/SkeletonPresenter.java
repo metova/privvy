@@ -1,8 +1,8 @@
 package com.metova.privvy.sample.ui.skeleton;
 
-import com.metova.privvy.sample.base.BasePresenter;
+import com.metova.privvy.PrivvyPresenter;
 
-class SkeletonPresenter extends BasePresenter<SkeletonContract.View, SkeletonContract.Interactor> implements SkeletonContract.Presenter {
+class SkeletonPresenter extends PrivvyPresenter<SkeletonContract.View, SkeletonContract.Interactor> implements SkeletonContract.Presenter {
 
     SkeletonPresenter(SkeletonContract.Interactor interactor) {
         super(interactor);

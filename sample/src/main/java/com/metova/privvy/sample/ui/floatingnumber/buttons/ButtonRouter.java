@@ -1,10 +1,10 @@
 package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
-import com.metova.privvy.sample.base.BaseRouter;
+import com.metova.privvy.PrivvyRouter;
 
 import android.support.v7.app.AppCompatActivity;
 
-class ButtonRouter extends BaseRouter implements ButtonContract.Router {
+class ButtonRouter extends PrivvyRouter implements ButtonContract.Router {
 
     public ButtonRouter(AppCompatActivity activity) {
         super(activity);
