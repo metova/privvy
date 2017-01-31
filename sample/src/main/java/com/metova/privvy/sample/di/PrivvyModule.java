@@ -19,21 +19,25 @@ import dagger.Provides;
 public class PrivvyModule {
 
     @Provides
+    @PrivvyScope
     NumberComponent provideNumberComponent(NumberComponent.Builder builder) {
         return builder.numberModule(new NumberModule()).build();
     }
 
     @Provides
+    @PrivvyScope
     ButtonComponent provideButtonComponent(ButtonComponent.Builder builder) {
         return builder.buttonModule(new ButtonModule()).build();
     }
 
     @Provides
+    @PrivvyScope
     ListComponent provideListComponent(ListComponent.Builder builder) {
         return builder.listModule(new ListModule()).build();
     }
 
 //    @Provides
+//    @PrivvyScope
 //    SkeletonComponent provideSkeletonComponent(SkeletonComponent.Builder builder) {
 //        return builder.skeletonModule(new SkeletonModule()).build();
 //    }
