@@ -35,8 +35,7 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
     public ListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_listitem, parent, false);
-        inflatedView.setOnClickListener(v -> callback.onItemClicked(v));
-        return new ListHolder(inflatedView);
+        return new ListHolder(inflatedView, callback);
     }
 
     @Override
@@ -55,12 +54,15 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
         TextView description;
         TextView value;
 
-        ListHolder(View itemView) {
+        ListHolder(View itemView, ListClickCallback clickCallback) {
             super(itemView);
+
+            itemView.setOnClickListener(clickCallback::onItemClicked);
 
             description = (TextView) itemView.findViewById(R.id.listitem_descriptor);
             value = (TextView) itemView.findViewById(R.id.listitem_value);
         }
+
     }
 
     interface ListClickCallback {
