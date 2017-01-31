@@ -14,15 +14,28 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
 
     private List<ListViewModel> numbers;
 
+    private ListClickCallback callback;
+
+
+    ListAdapter(ListClickCallback callback) {
+        this.callback = callback;
+    }
+
     void setNumbers(List<ListViewModel> numbers) {
         this.numbers = numbers;
         notifyDataSetChanged();
+    }
+
+    void setListItem(ListViewModel viewModel) {
+        this.numbers.set(viewModel.number(), viewModel);
+        notifyItemChanged(viewModel.number());
     }
 
     @Override
     public ListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_listitem, parent, false);
+        inflatedView.setOnClickListener(v -> callback.onItemClicked(v));
         return new ListHolder(inflatedView);
     }
 
@@ -48,5 +61,9 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
             description = (TextView) itemView.findViewById(R.id.listitem_descriptor);
             value = (TextView) itemView.findViewById(R.id.listitem_value);
         }
+    }
+
+    interface ListClickCallback {
+        void onItemClicked(View v);
     }
 }

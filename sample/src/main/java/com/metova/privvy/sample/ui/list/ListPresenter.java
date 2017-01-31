@@ -21,6 +21,13 @@ class ListPresenter extends BasePresenter<ListContract.View, ListContract.Intera
     }
 
     @Override
+    public void onClickTile(int position) {
+        getInteractor().updateListItem(position)
+                .map(descriptiveNumber -> mapper.map(descriptiveNumber))
+                .subscribe(listViewModel -> getView().updateListItem(listViewModel));
+    }
+
+    @Override
     public void goBack() {
         getInteractor().goBack();
     }

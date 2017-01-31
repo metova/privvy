@@ -19,5 +19,6 @@ class NumberRouter extends BaseRouter implements NumberContract.Router {
     public void navigateToList() {
         Intent intent = new Intent(getActivity(), ListActivity.class);
         getActivity().startActivity(intent);
+        getActivity().finish();
     }
 }

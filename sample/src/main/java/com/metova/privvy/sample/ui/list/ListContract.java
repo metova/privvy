@@ -12,9 +12,13 @@ public interface ListContract {
     interface View extends Contract.View {
 
         void updateList(List<ListViewModel> numbers);
+
+        void updateListItem(ListViewModel number);
     }
 
     interface Presenter extends Contract.Presenter<View> {
+
+        void onClickTile(int position);
 
         void goBack();
     }
@@ -22,6 +26,8 @@ public interface ListContract {
     interface Interactor extends Contract.Interactor {
 
         Observable<List<DescriptiveNumber>> fetchNumberList();
+
+        Observable<DescriptiveNumber> updateListItem(int position);
 
         void goBack();
     }

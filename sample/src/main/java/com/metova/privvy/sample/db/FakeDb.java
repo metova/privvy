@@ -51,4 +51,13 @@ public class FakeDb {
     public void setNumberValue(int value) {
         number.value = value;
     }
+
+    public Observable<DescriptiveNumber> updateListItem(int position) {
+        //fake database interaction that flags the model somehow
+        DescriptiveNumber num = new DescriptiveNumber();
+        num.value = position;
+        num.description = "Magic Number: ";
+
+        return Observable.just(num);
+    }
 }
