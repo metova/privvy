@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import java.util.List;
 
@@ -76,8 +75,8 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
     }
 
     @Override
-    public void onItemClicked(View v) {
-        presenter.onClickTile(numberList.getChildAdapterPosition(v));
+    public void onItemClicked(int position) {
+        presenter.onClickTile(position);
     }
 
 }

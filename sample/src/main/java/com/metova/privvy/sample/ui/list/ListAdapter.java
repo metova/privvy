@@ -57,7 +57,7 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
         ListHolder(View itemView, ListClickCallback clickCallback) {
             super(itemView);
 
-            itemView.setOnClickListener(clickCallback::onItemClicked);
+            itemView.setOnClickListener(v -> clickCallback.onItemClicked(getAdapterPosition()));
 
             description = (TextView) itemView.findViewById(R.id.listitem_descriptor);
             value = (TextView) itemView.findViewById(R.id.listitem_value);
@@ -66,6 +66,6 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListHolder>{
     }
 
     interface ListClickCallback {
-        void onItemClicked(View v);
+        void onItemClicked(int position);
     }
 }
