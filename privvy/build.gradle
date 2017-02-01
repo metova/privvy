@@ -1,14 +1,16 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.metova'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 25
-        versionCode 1
-        versionName "0.0.1"
+        minSdkVersion rootProject.ext.minSdkVersion
+
+        consumerProguardFiles 'proguard-rules.pro'
     }
 }
 
@@ -19,6 +21,3 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'io.reactivex:rxjava:1.2.2'
 }
-
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
