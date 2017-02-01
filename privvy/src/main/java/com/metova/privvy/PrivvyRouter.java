@@ -1,16 +1,17 @@
-package com.metova.privvy.sample.base;
+package com.metova.privvy;
+
 
 import android.support.v7.app.AppCompatActivity;
 
-public class BaseRouter implements Contract.Router {
+public class PrivvyRouter implements PrivvyContract.Router {
 
     private AppCompatActivity activity;
 
-    private BaseRouter() {
+    private PrivvyRouter() {
         //must provide AppCompatActivity
     }
 
-    public BaseRouter(AppCompatActivity activity) {
+    public PrivvyRouter(AppCompatActivity activity) {
         this.activity = activity;
     }
 

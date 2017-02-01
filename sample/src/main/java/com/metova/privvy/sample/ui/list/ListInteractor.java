@@ -1,6 +1,6 @@
 package com.metova.privvy.sample.ui.list;
 
-import com.metova.privvy.sample.base.BaseInteractor;
+import com.metova.privvy.PrivvyInteractor;
 import com.metova.privvy.sample.db.FakeDb;
 import com.metova.privvy.sample.models.DescriptiveNumber;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 import rx.Observable;
 
-class ListInteractor extends BaseInteractor implements ListContract.Interactor {
+class ListInteractor extends PrivvyInteractor implements ListContract.Interactor {
 
     private FakeDb fakeDb;
     private ListContract.Router router;

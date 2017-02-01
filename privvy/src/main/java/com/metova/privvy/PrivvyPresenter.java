@@ -1,18 +1,18 @@
-package com.metova.privvy.sample.base;
+package com.metova.privvy;
 
 import android.support.annotation.CallSuper;
 
-public abstract class BasePresenter<V extends Contract.View, I extends Contract.Interactor> extends CompositeSubscriber implements Contract.Presenter<V>{
+public abstract class PrivvyPresenter<V extends PrivvyContract.View, I extends PrivvyContract.Interactor> extends CompositeSubscriber implements PrivvyContract.Presenter<V>{
 
     private V view;
 
     private I interactor;
 
-    private BasePresenter() {
+    private PrivvyPresenter() {
         //must pass interactor
     }
 
-    protected BasePresenter(I interactor) {
+    protected PrivvyPresenter(I interactor) {
         this.interactor = interactor;
     }
 

@@ -1,9 +1,9 @@
 package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
-import com.metova.privvy.sample.base.BaseInteractor;
+import com.metova.privvy.PrivvyInteractor;
 import com.metova.privvy.sample.db.FakeDb;
 
-class ButtonInteractor extends BaseInteractor implements ButtonContract.Interactor {
+class ButtonInteractor extends PrivvyInteractor implements ButtonContract.Interactor {
 
     private FakeDb fakeDb;
 

@@ -1,12 +1,12 @@
 package com.metova.privvy.sample.ui.list;
 
 import com.metova.privvy.sample.MainActivity;
-import com.metova.privvy.sample.base.BaseRouter;
+import com.metova.privvy.PrivvyRouter;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
-class ListRouter extends BaseRouter implements ListContract.Router {
+class ListRouter extends PrivvyRouter implements ListContract.Router {
 
     ListRouter(AppCompatActivity activity) {
         super(activity);

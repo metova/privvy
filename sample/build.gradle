@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
@@ -13,59 +12,22 @@ android {
         versionCode 1
         versionName "0.0.1"
         testInstrumentationRunner "com.metova.privvy.sample.SampleTestRunner"
-        multiDexEnabled true
     }
-    signingConfigs {
-        release {
-        }
-    }
+
     buildTypes {
         debug {
             minifyEnabled false
         }
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            signingConfig signingConfigs.release
-        }
     }
-    packagingOptions {
-        exclude 'LICENSE'
-        exclude 'NOTICE'
-        exclude 'META-INF/LICENSE-FIREBASE.txt'
-        exclude 'META-INF/services/javax.annotation.processing.Processor'
-    }
-    lintOptions {
-        abortOnError false
-    }
-    sourceSets {
 
-    }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        url "http://repository.jetbrains.com/all"
-    }
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 dependencies {
     compile project(':privvy')
-
-    compile 'com.android.support:multidex:1.0.1'
-
-    //leakcanary
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     //support libs
     compile 'com.android.support:appcompat-v7:25.1.0'
@@ -80,12 +42,6 @@ dependencies {
     //timber
     compile 'com.jakewharton.timber:timber:4.3.1'
 
-    //picasso
-    compile 'com.squareup.picasso:picasso:2.5.2'
-
-    //slim
-    compile 'com.metova:slim:1.2'
-
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
@@ -97,7 +53,6 @@ dependencies {
     //rx
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.2.2'
-    compile 'com.trello:rxlifecycle:0.6.1'
     compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
 
     //autovalue

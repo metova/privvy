@@ -1,13 +1,13 @@
 package com.metova.privvy.sample.ui.floatingnumber.number;
 
-import com.metova.privvy.sample.base.Contract;
+import com.metova.privvy.PrivvyContract;
 import com.metova.privvy.sample.models.Number;
 
 import rx.Observable;
 
-public interface NumberContract extends Contract {
+public interface NumberContract extends PrivvyContract {
 
-    interface View extends Contract.View {
+    interface View extends PrivvyContract.View {
 
         boolean onLongClickNumber();
 
@@ -16,14 +16,14 @@ public interface NumberContract extends Contract {
         void updateFontSize(int scale);
     }
 
-    interface Presenter extends Contract.Presenter<View> {
+    interface Presenter extends PrivvyContract.Presenter<View> {
 
         void incrementNumberBy();
 
         void onNumberUpdated(Number number);
     }
 
-    interface Interactor extends Contract.Interactor {
+    interface Interactor extends PrivvyContract.Interactor {
 
         Observable<Number> getNumber();
 
@@ -34,7 +34,7 @@ public interface NumberContract extends Contract {
         void navigateToList();
     }
 
-    interface Router extends Contract.Router {
+    interface Router extends PrivvyContract.Router {
         void navigateToList();
     }
 

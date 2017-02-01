@@ -1,8 +1,8 @@
 package com.metova.privvy.sample.ui.skeleton;
 
-import com.metova.privvy.sample.base.BaseInteractor;
+import com.metova.privvy.PrivvyInteractor;
 
-class SkeletonInteractor extends BaseInteractor implements SkeletonContract.Interactor {
+class SkeletonInteractor extends PrivvyInteractor implements SkeletonContract.Interactor {
 
     SkeletonInteractor() {
     }

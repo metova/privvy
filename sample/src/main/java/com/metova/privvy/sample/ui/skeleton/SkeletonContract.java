@@ -1,22 +1,22 @@
 package com.metova.privvy.sample.ui.skeleton;
 
-import com.metova.privvy.sample.base.Contract;
+import com.metova.privvy.PrivvyContract;
 
-public interface SkeletonContract extends Contract {
+public interface SkeletonContract extends PrivvyContract {
 
-    interface View extends Contract.View {
-
-    }
-
-    interface Presenter extends Contract.Presenter<View> {
+    interface View extends PrivvyContract.View {
 
     }
 
-    interface Interactor extends Contract.Interactor {
+    interface Presenter extends PrivvyContract.Presenter<View> {
 
     }
 
-    interface Router extends Contract.Router {
+    interface Interactor extends PrivvyContract.Interactor {
+
+    }
+
+    interface Router extends PrivvyContract.Router {
 
     }
 

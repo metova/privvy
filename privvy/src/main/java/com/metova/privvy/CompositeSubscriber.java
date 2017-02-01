@@ -1,4 +1,4 @@
-package com.metova.privvy.sample.base;
+package com.metova.privvy;
 
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
