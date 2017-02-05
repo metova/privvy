@@ -1,19 +1,20 @@
 package com.metova.privvy.sample;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import com.metova.privvy.PrivvyHost;
+import com.metova.privvy.PrivvyHostDelegate;
 import com.metova.privvy.RouteData;
 import com.metova.privvy.sample.di.HostComponent;
 import com.metova.privvy.sample.di.HostModule;
 import com.metova.privvy.sample.ui.floatingnumber.buttons.ButtonComponent;
 import com.metova.privvy.sample.ui.floatingnumber.number.NumberComponent;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PrivvyHost {
 
     public HostComponent hostComponent;
+
+    private PrivvyHostDelegate hostDelegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,39 +24,25 @@ public class MainActivity extends AppCompatActivity {
                 .hostModule(new HostModule(this))
                 .build();
 
+        hostDelegate = new PrivvyHostDelegate(this);
+
         setContentView(R.layout.main_activity);
 
-        initializeComponents(NumberComponent.ROUTE_DATA, ButtonComponent.ROUTE_DATA);
+        initialize(NumberComponent.ROUTE_DATA, ButtonComponent.ROUTE_DATA);
     }
 
-    private void initializeComponents(RouteData... routeData) {
-        for (RouteData data : routeData) {
-            startComponent(data);
-        }
+    @Override
+    public void initialize(RouteData... routeData) {
+        hostDelegate.initialize(routeData);
     }
 
-    private void startComponent(RouteData routeData) {
-        switch (routeData.viewType()) {
-            case ACTIVITY:
-                handleActivity(routeData);
-                break;
-            case FRAGMENT:
-                handleFragment(routeData);
-                break;
-        }
+    @Override
+    public void replace(RouteData oldComponent, RouteData newComponent) {
+        hostDelegate.replace(oldComponent, newComponent);
     }
 
-    private void handleFragment(RouteData routeData) {
-        try {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(routeData.viewId(), (Fragment) routeData.viewClass().newInstance(), routeData.tag());
-            ft.commit();
-        } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void handleActivity(RouteData routeData) {
-        startActivity(new Intent(this, routeData.viewClass()));
+    @Override
+    public void goTo(RouteData newComponent) {
+        hostDelegate.goTo(newComponent);
     }
 }
