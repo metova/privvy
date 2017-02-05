@@ -1,5 +1,8 @@
 package com.metova.privvy.sample.ui.list;
 
+import com.metova.privvy.PrivvyHost;
+import com.metova.privvy.PrivvyHostDelegate;
+import com.metova.privvy.RouteData;
 import com.metova.privvy.sample.R;
 import com.metova.privvy.sample.SampleApplication;
 import com.metova.privvy.sample.di.HostComponent;
@@ -19,10 +22,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ListActivity extends AppCompatActivity implements ListContract.View, ListAdapter.ListClickCallback {
+public class ListActivity extends AppCompatActivity implements PrivvyHost, ListContract.View, ListAdapter.ListClickCallback {
 
     @Inject
     ListComponent listComponent;
+
+    PrivvyHostDelegate hostDelegate;
 
     @BindView(R.id.list_recyclerview)
     RecyclerView numberList;
@@ -40,6 +45,8 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
                 .build();
 
         hostComponent.newPrivvyComponent().inject(this);
+
+        hostDelegate = new PrivvyHostDelegate(this);
 
         setContentView(R.layout.list_activity);
 
@@ -79,4 +86,18 @@ public class ListActivity extends AppCompatActivity implements ListContract.View
         presenter.onClickTile(position);
     }
 
+    @Override
+    public void initialize(RouteData... routes) {
+        hostDelegate.initialize(routes);
+    }
+
+    @Override
+    public void replace(RouteData oldComponent, RouteData newComponent) {
+        hostDelegate.replace(oldComponent, newComponent);
+    }
+
+    @Override
+    public void goTo(RouteData newComponent) {
+        hostDelegate.goTo(newComponent);
+    }
 }

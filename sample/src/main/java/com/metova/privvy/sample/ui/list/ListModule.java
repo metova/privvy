@@ -1,9 +1,7 @@
 package com.metova.privvy.sample.ui.list;
 
+import com.metova.privvy.PrivvyHost;
 import com.metova.privvy.sample.db.FakeDb;
-
-import android.support.v7.app.AppCompatActivity;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -28,7 +26,7 @@ public class ListModule {
 
     @Provides
     @ListScope
-    ListContract.Router provideRouter(AppCompatActivity activity) {
-        return new ListRouter(activity);
+    ListContract.Router provideRouter(PrivvyHost host) {
+        return new ListRouter(host);
     }
 }

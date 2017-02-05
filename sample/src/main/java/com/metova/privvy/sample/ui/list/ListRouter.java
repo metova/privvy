@@ -1,21 +1,19 @@
 package com.metova.privvy.sample.ui.list;
 
+import com.metova.privvy.PrivvyHost;
+import com.metova.privvy.RouteData;
+import com.metova.privvy.ViewType;
 import com.metova.privvy.sample.MainActivity;
 import com.metova.privvy.PrivvyRouter;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
 class ListRouter extends PrivvyRouter implements ListContract.Router {
 
-    ListRouter(AppCompatActivity activity) {
-        super(activity);
+    ListRouter(PrivvyHost host) {
+        super(host);
     }
 
     @Override
     public void navigateToMain() {
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        getActivity().startActivity(intent);
-        getActivity().finish();
+        getHost().goTo(new RouteData.Builder().viewType(ViewType.ACTIVITY).viewClass(MainActivity.class).build());
     }
 }

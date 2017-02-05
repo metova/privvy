@@ -1,7 +1,6 @@
 package com.metova.privvy.sample.ui.skeleton;
 
-import android.support.v7.app.AppCompatActivity;
-
+import com.metova.privvy.PrivvyHost;
 import dagger.Module;
 import dagger.Provides;
 
@@ -25,8 +24,8 @@ public final class SkeletonModule {
 
     @Provides
     @SkeletonScope
-    SkeletonContract.Router provideRouter(AppCompatActivity appCompatActivity) {
-        return new SkeletonRouter(appCompatActivity);
+    SkeletonContract.Router provideRouter(PrivvyHost host) {
+        return new SkeletonRouter(host);
     }
 
 }

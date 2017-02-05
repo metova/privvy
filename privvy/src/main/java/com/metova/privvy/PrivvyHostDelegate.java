@@ -46,6 +46,7 @@ public class PrivvyHostDelegate implements PrivvyHost {
         commitFragmentTransaction(oldComponent.viewId(), newComponent.viewClass(), newComponent.tag());
     }
 
+    @SuppressWarnings("TryWithIdenticalCatches")
     private void commitFragmentTransaction(@IdRes int viewId, Class<?> fragmentClass, String tag) {
         try {
             FragmentTransaction ft = hostActivity.getSupportFragmentManager().beginTransaction();
