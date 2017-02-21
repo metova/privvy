@@ -9,7 +9,7 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {ButtonModule.class})
 public interface ButtonComponent {
 
-    RouteData ROUTE_DATA = new RouteData.Builder()
+    RouteData ROUTE_DATA = RouteData.Builder()
             .viewType(ViewType.FRAGMENT)
             .viewClass(ButtonFragment.class)
             .viewId(R.id.button_component)

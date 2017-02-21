@@ -8,7 +8,7 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {ListModule.class})
 public interface ListComponent {
 
-    RouteData ROUTE_DATA = new RouteData.Builder()
+    RouteData ROUTE_DATA = RouteData.Builder()
             .viewType(ViewType.ACTIVITY)
             .viewClass(ListActivity.class)
             .build();

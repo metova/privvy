@@ -1,60 +1,28 @@
 package com.metova.privvy;
 
 import android.support.annotation.IdRes;
+import com.google.auto.value.AutoValue;
 
-public final class RouteData {
+@AutoValue
+public abstract class RouteData {
 
-    private final ViewType viewType;
-    private final Class<?> viewClass;
-    @IdRes
-    private int viewId;
+    public abstract ViewType viewType();
+    public abstract Class<?> viewClass();
+    public abstract int viewId();
 
-    private RouteData(ViewType viewType, Class<?> viewClass, @IdRes int viewId) {
-        this.viewType = viewType;
-        this.viewClass = viewClass;
-        this.viewId = viewId;
-    }
-
-    public ViewType viewType() {
-        return viewType;
-    }
-
-    public Class<?> viewClass() {
-        return viewClass;
-    }
-
-    @IdRes
-    public int viewId() {
-        return viewId;
+    public static Builder Builder() {
+        return new AutoValue_RouteData.Builder().viewId(0);
     }
 
     public String tag() {
-        return viewClass.getSimpleName();
+        return viewClass().getSimpleName();
     }
 
-    public static class Builder {
-        private ViewType viewType;
-        private Class<?> viewClass;
-        @IdRes
-        private int viewId;
-
-        public Builder viewType(ViewType viewType) {
-            this.viewType = viewType;
-            return this;
-        }
-
-        public Builder viewClass(Class<?> viewClass) {
-            this.viewClass = viewClass;
-            return this;
-        }
-
-        public Builder viewId(@IdRes int viewId) {
-            this.viewId = viewId;
-            return this;
-        }
-
-        public RouteData build() {
-            return new RouteData(viewType, viewClass, viewId);
-        }
+    @AutoValue.Builder
+    public interface Builder {
+        Builder viewType(ViewType viewType);
+        Builder viewClass(Class<?> viewClass);
+        Builder viewId(@IdRes int viewId);
+        RouteData build();
     }
 }

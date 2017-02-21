@@ -14,6 +14,6 @@ class ListRouter extends PrivvyRouter implements ListContract.Router {
 
     @Override
     public void navigateToMain() {
-        getHost().goTo(new RouteData.Builder().viewType(ViewType.ACTIVITY).viewClass(MainActivity.class).build());
+        getHost().goTo(RouteData.Builder().viewType(ViewType.ACTIVITY).viewClass(MainActivity.class).build());
     }
 }
