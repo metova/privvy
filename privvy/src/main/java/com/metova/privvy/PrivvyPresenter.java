@@ -8,10 +8,6 @@ public abstract class PrivvyPresenter<V extends PrivvyContract.View, I extends P
 
     private I interactor;
 
-    private PrivvyPresenter() {
-        //must pass interactor
-    }
-
     protected PrivvyPresenter(I interactor) {
         this.interactor = interactor;
     }
