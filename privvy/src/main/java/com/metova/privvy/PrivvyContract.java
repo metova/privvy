@@ -1,7 +1,5 @@
 package com.metova.privvy;
 
-import android.support.v7.app.AppCompatActivity;
-
 public interface PrivvyContract {
 
     interface View {
@@ -23,7 +21,7 @@ public interface PrivvyContract {
 
     interface Router {
 
-        AppCompatActivity getActivity();
+        PrivvyHost getHost();
     }
 
 }

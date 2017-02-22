@@ -1,22 +1,21 @@
 package com.metova.privvy.sample.di;
 
-import android.support.v7.app.AppCompatActivity;
-
+import com.metova.privvy.PrivvyHost;
 import dagger.Module;
 import dagger.Provides;
 
 @Module
 public class HostModule {
 
-    private final AppCompatActivity activity;
+    private final PrivvyHost host;
 
-    public HostModule(AppCompatActivity activity) {
-        this.activity = activity;
+    public HostModule(PrivvyHost host) {
+        this.host = host;
     }
 
     @Provides
     @HostScope
-    AppCompatActivity provideActivity() {
-        return activity;
+    PrivvyHost provideHost() {
+        return host;
     }
 }

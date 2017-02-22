@@ -1,18 +1,13 @@
 package com.metova.privvy.sample.ui.floatingnumber.number;
 
+import com.metova.privvy.PrivvyHost;
 import com.metova.privvy.sample.db.FakeDb;
 import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
-
-import android.support.v7.app.AppCompatActivity;
-
 import dagger.Module;
 import dagger.Provides;
 
 @Module
 public final class NumberModule {
-
-    public NumberModule() {
-    }
 
     @Provides
     @NumberScope
@@ -28,8 +23,9 @@ public final class NumberModule {
 
     @Provides
     @NumberScope
-    NumberContract.Router provideRouter(AppCompatActivity activity) {
-        return new NumberRouter(activity);
+    NumberContract.Router provideRouter(PrivvyHost host) {
+        return new NumberRouter(host);
     }
+
 
 }

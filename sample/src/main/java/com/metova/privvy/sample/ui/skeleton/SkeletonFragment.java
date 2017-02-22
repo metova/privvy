@@ -24,7 +24,7 @@
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        ((MainActivity) getActivity()).hostComponent.newPrivvyComponent().inject(this);
+//        ((MainActivity) getHost()).hostComponent.newPrivvyComponent().inject(this);
 //        presenter = mSkeletonComponent.presenter();
 //    }
 //

@@ -1,23 +1,16 @@
 package com.metova.privvy;
 
-
-import android.support.v7.app.AppCompatActivity;
-
 public class PrivvyRouter implements PrivvyContract.Router {
 
-    private AppCompatActivity activity;
+    private PrivvyHost host;
 
-    private PrivvyRouter() {
-        //must provide AppCompatActivity
-    }
-
-    public PrivvyRouter(AppCompatActivity activity) {
-        this.activity = activity;
+    public PrivvyRouter(PrivvyHost host) {
+        this.host = host;
     }
 
     @Override
-    public AppCompatActivity getActivity() {
-        return activity;
+    public PrivvyHost getHost() {
+        return host;
     }
 
 }

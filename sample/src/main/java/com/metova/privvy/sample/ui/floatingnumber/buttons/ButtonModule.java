@@ -1,9 +1,8 @@
 package com.metova.privvy.sample.ui.floatingnumber.buttons;
 
+import com.metova.privvy.PrivvyHost;
 import com.metova.privvy.sample.db.FakeDb;
 import com.metova.privvy.sample.ui.floatingnumber.NumberUpdateYoke;
-
-import android.support.v7.app.AppCompatActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -28,8 +27,8 @@ public final class ButtonModule {
 
     @Provides
     @ButtonScope
-    ButtonContract.Router provideButtonRouter(AppCompatActivity activity) {
-        return new ButtonRouter(activity);
+    ButtonContract.Router provideButtonRouter(PrivvyHost host) {
+        return new ButtonRouter(host);
     }
 
 }
