@@ -6,7 +6,7 @@ import com.metova.privvy.sample.models.DescriptiveNumber;
 
 import java.util.List;
 
-import rx.Observable;
+import io.reactivex.Flowable;
 
 class ListInteractor extends PrivvyInteractor implements ListContract.Interactor {
 
@@ -19,7 +19,7 @@ class ListInteractor extends PrivvyInteractor implements ListContract.Interactor
     }
 
     @Override
-    public Observable<List<DescriptiveNumber>> fetchNumberList() {
+    public Flowable<List<DescriptiveNumber>> fetchNumberList() {
         return fakeDb.getNumberList();
     }
 
@@ -29,7 +29,7 @@ class ListInteractor extends PrivvyInteractor implements ListContract.Interactor
     }
 
     @Override
-    public Observable<DescriptiveNumber> updateListItem(int position) {
+    public Flowable<DescriptiveNumber> updateListItem(int position) {
         return fakeDb.updateListItem(position);
     }
 }

@@ -1,9 +1,9 @@
 package com.metova.privvy;
 
-public abstract class PrivvyInteractor extends CompositeSubscriber implements PrivvyContract.Interactor {
+public abstract class PrivvyInteractor extends CompositeDisposer implements PrivvyContract.Interactor {
 
     @Override
-    public void unsubscribe() {
-        unsubscribeSubscriptions();
+    public void dispose() {
+        clearDisposables();
     }
 }
