@@ -1,6 +1,11 @@
 # Privvy
 Privvy: The new Android UI architecture
 
+# Binaries
+```
+com.github.metova:privvy:0.2.0-alpha
+```
+
 # License
 ```
 Copyright 2017 Metova, Inc.
