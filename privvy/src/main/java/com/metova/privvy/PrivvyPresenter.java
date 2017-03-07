@@ -2,7 +2,7 @@ package com.metova.privvy;
 
 import android.support.annotation.CallSuper;
 
-public abstract class PrivvyPresenter<V extends PrivvyContract.View, I extends PrivvyContract.Interactor> extends CompositeSubscriber implements PrivvyContract.Presenter<V>{
+public abstract class PrivvyPresenter<V extends PrivvyContract.View, I extends PrivvyContract.Interactor> extends CompositeDisposer implements PrivvyContract.Presenter<V>{
 
     private V view;
 
@@ -25,9 +25,9 @@ public abstract class PrivvyPresenter<V extends PrivvyContract.View, I extends P
     @CallSuper
     @Override
     public void onDestroyView() {
-        unsubscribeSubscriptions();
+        clearDisposables();
         setView(null);
-        interactor.unsubscribe();
+        interactor.dispose();
     }
 
     protected V getView() {

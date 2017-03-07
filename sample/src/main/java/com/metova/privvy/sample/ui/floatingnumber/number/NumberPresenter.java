@@ -20,7 +20,7 @@ class NumberPresenter extends PrivvyPresenter<NumberContract.View, NumberContrac
 
     @Override
     protected void setupSubscriptions() {
-        addSubscriptions(
+        addDisposables(
                 getInteractor().getNumber().subscribe(this::onNumberUpdated),
                 getInteractor().onNumberUpdated().subscribe(this::onNumberUpdated),
                 numberUpdateYoke.onNumberChanged().subscribe(getView()::updateFontSize)

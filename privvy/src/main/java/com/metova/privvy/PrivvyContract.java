@@ -16,7 +16,7 @@ public interface PrivvyContract {
 
     interface Interactor {
 
-        void unsubscribe();
+        void dispose();
     }
 
     interface Router {
