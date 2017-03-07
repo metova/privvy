@@ -27,7 +27,7 @@ android {
 }
 
 dependencies {
-    compile project(':privvy')
+    compile project(':privvy1')
 
     //support libs
     compile 'com.android.support:appcompat-v7:25.1.0'
