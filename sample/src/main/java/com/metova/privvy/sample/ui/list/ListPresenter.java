@@ -13,7 +13,7 @@ class ListPresenter extends PrivvyPresenter<ListContract.View, ListContract.Inte
 
     @Override
     public void setupSubscriptions() {
-        addSubscriptions(
+        addDisposables(
                 getInteractor().fetchNumberList()
                         .map(list -> mapper.map(list))
                         .subscribe(list -> getView().updateList(list))

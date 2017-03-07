@@ -4,7 +4,7 @@ import com.metova.privvy.PrivvyInteractor;
 import com.metova.privvy.sample.db.FakeDb;
 import com.metova.privvy.sample.models.Number;
 
-import rx.Observable;
+import io.reactivex.Flowable;
 
 class NumberInteractor extends PrivvyInteractor implements NumberContract.Interactor {
 
@@ -18,7 +18,7 @@ class NumberInteractor extends PrivvyInteractor implements NumberContract.Intera
     }
 
     @Override
-    public Observable<Number> getNumber() {
+    public Flowable<Number> getNumber() {
         return fakeDb.getNumber();
     }
 
@@ -28,7 +28,7 @@ class NumberInteractor extends PrivvyInteractor implements NumberContract.Intera
     }
 
     @Override
-    public Observable<Number> onNumberUpdated() {
+    public Flowable<Number> onNumberUpdated() {
         return fakeDb.numberUpdates();
     }
 

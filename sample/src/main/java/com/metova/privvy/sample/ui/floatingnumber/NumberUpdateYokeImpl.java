@@ -1,8 +1,9 @@
 package com.metova.privvy.sample.ui.floatingnumber;
 
-import com.jakewharton.rxrelay.PublishRelay;
+import com.jakewharton.rxrelay2.PublishRelay;
 
-import rx.Observable;
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
 
 public class NumberUpdateYokeImpl implements NumberUpdateYoke {
 
@@ -12,13 +13,13 @@ public class NumberUpdateYokeImpl implements NumberUpdateYoke {
     }
 
     @Override
-    public Observable<Integer> onNumberChanged() {
-        return numberSubject.asObservable();
+    public Flowable<Integer> onNumberChanged() {
+        return numberSubject.toFlowable(BackpressureStrategy.BUFFER);
     }
 
     @Override
     public void changeNumber(int newNumber) {
-        numberSubject.call(newNumber);
+        numberSubject.accept(newNumber);
     }
 
 }

@@ -1,10 +1,10 @@
 package com.metova.privvy.sample.ui.floatingnumber;
 
-import rx.Observable;
+import io.reactivex.Flowable;
 
 public interface NumberUpdateYoke {
 
-    Observable<Integer> onNumberChanged();
+    Flowable<Integer> onNumberChanged();
 
     void changeNumber(int newNumber);
 }

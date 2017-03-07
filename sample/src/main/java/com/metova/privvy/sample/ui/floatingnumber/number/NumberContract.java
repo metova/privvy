@@ -3,7 +3,7 @@ package com.metova.privvy.sample.ui.floatingnumber.number;
 import com.metova.privvy.PrivvyContract;
 import com.metova.privvy.sample.models.Number;
 
-import rx.Observable;
+import io.reactivex.Flowable;
 
 public interface NumberContract extends PrivvyContract {
 
@@ -25,11 +25,11 @@ public interface NumberContract extends PrivvyContract {
 
     interface Interactor extends PrivvyContract.Interactor {
 
-        Observable<Number> getNumber();
+        Flowable<Number> getNumber();
 
         void incrementNumberBy(int value);
 
-        Observable<Number> onNumberUpdated();
+        Flowable<Number> onNumberUpdated();
 
         void navigateToList();
     }

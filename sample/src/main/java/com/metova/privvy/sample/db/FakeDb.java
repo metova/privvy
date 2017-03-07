@@ -1,5 +1,6 @@
 package com.metova.privvy.sample.db;
 
+import com.jakewharton.rxrelay2.PublishRelay;
 import com.metova.privvy.sample.models.DescriptiveNumber;
 import com.metova.privvy.sample.models.Number;
 
@@ -9,13 +10,14 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import rx.Observable;
-import rx.subjects.PublishSubject;
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+
 
 @Singleton
 public class FakeDb {
 
-    private PublishSubject<Number> numberSubject = PublishSubject.create();
+    private PublishRelay<Number> numberRelay = PublishRelay.create();
 
     private Number number = new Number();
 
@@ -23,20 +25,20 @@ public class FakeDb {
     public FakeDb() {
     }
 
-    public Observable<Number> getNumber() {
-        return Observable.just(number);
+    public Flowable<Number> getNumber() {
+        return Flowable.just(number);
     }
 
     public void updateNumberBy(int value) {
         number.value += value;
-        numberSubject.onNext(this.number);
+        numberRelay.accept(this.number);
     }
 
-    public Observable<Number> numberUpdates() {
-        return numberSubject.asObservable();
+    public Flowable<Number> numberUpdates() {
+        return numberRelay.toFlowable(BackpressureStrategy.BUFFER);
     }
 
-    public Observable<List<DescriptiveNumber>> getNumberList() {
+    public Flowable<List<DescriptiveNumber>> getNumberList() {
         List<DescriptiveNumber> list = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -45,19 +47,19 @@ public class FakeDb {
             num.value = i;
             list.add(num);
         }
-        return Observable.just(list);
+        return Flowable.just(list);
     }
 
     public void setNumberValue(int value) {
         number.value = value;
     }
 
-    public Observable<DescriptiveNumber> updateListItem(int position) {
+    public Flowable<DescriptiveNumber> updateListItem(int position) {
         //fake database interaction that flags the model somehow
         DescriptiveNumber num = new DescriptiveNumber();
         num.value = position;
         num.description = "Magic Number: ";
 
-        return Observable.just(num);
+        return Flowable.just(num);
     }
 }
