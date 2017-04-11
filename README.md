@@ -6,6 +6,13 @@ Privvy: The new Android UI architecture
 com.github.metova:privvy:0.2.0
 ```
 
+# Getting Started
+If you would like to start a Privvy Component in your project, you can begin making the files manually as described in the wiki, or you can:
+1. download this template: https://github.com/metova/privvy/blob/2.x/privvy_template_rx2.zip
+2. unzip it to this directory: /Applications/Android Studio.app/Contents/plugins/android/lib/templates
+3. restart Android Studio
+4. right click on a package, find "New", and select "Privvy"
+
 # License
 ```
 Copyright 2017 Metova, Inc.
